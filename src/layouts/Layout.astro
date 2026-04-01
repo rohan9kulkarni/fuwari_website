@@ -100,13 +100,27 @@ const bannerOffset =
 		<meta name="twitter:description" content={description || pageTitle}>
 
 		{import.meta.env.PROD && (
-			<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-9TMZNHK1JN"></script>
+			<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-K35X9LZCR5"></script>
 			<script is:inline>
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
+				gtag('config', 'G-K35X9LZCR5', { send_page_view: false });
 
-				gtag('config', 'G-9TMZNHK1JN');
+				// Fire page_view on Swup transitions so SPA navigation is tracked
+				function setupGASwup() {
+					window.swup.hooks.on('page:view', () => {
+						gtag('event', 'page_view', {
+							page_title: document.title,
+							page_location: window.location.href,
+						});
+					});
+				}
+				if (window?.swup?.hooks) {
+					setupGASwup();
+				} else {
+					document.addEventListener('swup:enable', setupGASwup);
+				}
 			</script>
 		)}
 
