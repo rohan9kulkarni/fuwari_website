@@ -22,6 +22,17 @@ const postsCollection = defineCollection({
 const specCollection = defineCollection({
 	schema: z.object({}),
 });
+
+// 👇 New teaching collection — add this
+const teachingCollection = defineCollection({
+	type: "content",
+	schema: z.object({
+		title: z.string(),
+		date: z.string().optional(),
+		summary: z.string().optional(),
+	}),
+});
+
 export const collections = {
 	posts: postsCollection,
 	spec: specCollection,

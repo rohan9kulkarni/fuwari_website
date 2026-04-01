@@ -7,7 +7,7 @@ import ImageWrapper from "../misc/ImageWrapper.astro";
 const config = profileConfig;
 ---
 <div class="card-base p-3">
-    <a aria-label="Go to About Page" href={url('/about/')}
+    <a id="profile-img-link" aria-label="Go to About Page" href={url('/about/')}
        class="group block relative mx-auto mt-1 lg:mx-0 lg:mt-0 mb-3
        max-w-[12rem] lg:max-w-none overflow-hidden rounded-xl active:scale-95">
         <div class="absolute transition pointer-events-none group-hover:bg-black/30 group-active:bg-black/50
@@ -16,20 +16,26 @@ const config = profileConfig;
                   class="transition opacity-0 scale-90 group-hover:scale-100 group-hover:opacity-100 text-white text-5xl">
             </Icon>
         </div>
-        <ImageWrapper src={config.avatar || ""} alt="Profile Image of the Author" class="mx-auto lg:w-full h-full lg:mt-0 "></ImageWrapper>
+        <ImageWrapper src={config.avatar || ""} alt="Profile Image of the Author" class="mx-auto lg:w-full h-full lg:mt-0"></ImageWrapper>
     </a>
+
+    <!-- Pong replaces the image, same slot -->
+    <div id="pong-wrap" class="hidden mx-auto mt-1 lg:mx-0 lg:mt-0 mb-3 max-w-[12rem] lg:max-w-none rounded-xl overflow-hidden relative select-none" style="touch-action:none;">
+        <canvas id="pong-canvas" class="block w-full"></canvas>
+    </div>
+
     <div class="px-2">
         <div class="font-bold text-xl text-center mb-1 dark:text-neutral-50 transition">{config.name}</div>
         <div class="h-1 w-5 bg-[var(--primary)] mx-auto rounded-full mb-2 transition"></div>
         <div class="text-center text-neutral-400 mb-2.5 transition">{config.bio}</div>
         <div class="flex flex-wrap gap-2 justify-center mb-1">
             {config.links.length > 1 && config.links.map(item =>
-                    <a rel="me" aria-label={item.name} href={item.url} target="_blank" class="btn-regular rounded-lg h-10 w-10 active:scale-90">
-                        <Icon name={item.icon} class="text-[1.5rem]"></Icon>
-                    </a>
+                <a rel="me" aria-label={item.name} href={item.url} target="_blank" class="btn-regular rounded-lg h-10 w-10 active:scale-90">
+                    <Icon name={item.icon} class="text-[1.5rem]"></Icon>
+                </a>
             )}
             {config.links.length == 1 && <a rel="me" aria-label={config.links[0].name} href={config.links[0].url} target="_blank"
-                                            class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95">
+                class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95">
                 <Icon name={config.links[0].icon} class="text-[1.5rem]"></Icon>
                 {config.links[0].name}
             </a>}
@@ -37,3 +43,278 @@ const config = profileConfig;
     </div>
 </div>
 
+<script>
+(function () {
+    const link    = document.getElementById('profile-img-link') as HTMLAnchorElement;
+    const wrap    = document.getElementById('pong-wrap') as HTMLDivElement;
+    const canvas  = document.getElementById('pong-canvas') as HTMLCanvasElement;
+    const ctx     = canvas.getContext('2d')!;
+
+    // ── Triple-click detection ──────────────────────────────────────────────
+    let clicks = 0, clickTimer: ReturnType<typeof setTimeout> | null = null;
+
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        clicks++;
+        if (clickTimer) clearTimeout(clickTimer);
+        if (clicks >= 3) { clicks = 0; openGame(); return; }
+        clickTimer = setTimeout(() => {
+            if (clicks > 0) window.location.href = link.href;
+            clicks = 0;
+        }, 320);
+    });
+
+    // ── Game state ──────────────────────────────────────────────────────────
+    // Vertical table: player at BOTTOM, AI at TOP
+    // Paddles move LEFT / RIGHT
+    let W = 0, H = 0;
+    const PADDLE_H = 10;       // paddle thickness (horizontal bar)
+    let PADDLE_W = 0;          // paddle width, set on resize
+    const BALL_R = 5;
+    const WIN  = 7;
+    const PAD_MARGIN = 14;     // distance from edge
+
+    let playerX = 0, aiX = 0;
+    let bx = 0, by = 0, vx = 0, vy = 0;
+    let pScore = 0, aScore = 0;
+    let raf = 0, running = false;
+    let gameOver = false, serving = false;
+    let keys: Record<string, boolean> = {};
+    let touchX: number | null = null;
+    let msg = '';
+
+    function setup() {
+        W = wrap.offsetWidth;
+        H = Math.round(W * 1.55);          // portrait — roughly photo-like ratio
+        PADDLE_W = Math.round(W * 0.38);
+        canvas.width  = W;
+        canvas.height = H;
+        playerX = W / 2 - PADDLE_W / 2;
+        aiX     = W / 2 - PADDLE_W / 2;
+    }
+
+    function serve() {
+        bx = W / 2; by = H / 2;
+        const angle = (Math.random() * 0.5 - 0.25);
+        const spd = W * 0.032;
+        vx = spd * Math.sin(angle);
+        vy = spd * Math.cos(angle) * (Math.random() > 0.5 ? 1 : -1);
+        serving = false; msg = '';
+    }
+
+    function initGame() {
+        pScore = 0; aScore = 0; gameOver = false;
+        playerX = W / 2 - PADDLE_W / 2;
+        aiX     = W / 2 - PADDLE_W / 2;
+        serving = true;
+        msg = 'tap or ← → to serve';
+        bx = W / 2; by = H / 2; vx = 0; vy = 0;
+    }
+
+    // ── Drawing ─────────────────────────────────────────────────────────────
+    function draw() {
+        // Table surface
+        ctx.fillStyle = '#1a5c36';
+        ctx.fillRect(0, 0, W, H);
+
+        // Table border lines
+        ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(6, 6, W - 12, H - 12);
+
+        // Center line (net)
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(6, H / 2);
+        ctx.lineTo(W - 6, H / 2);
+        ctx.stroke();
+        // Net posts
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.fillRect(3, H/2 - 5, 5, 10);
+        ctx.fillRect(W - 8, H/2 - 5, 5, 10);
+        ctx.restore();
+
+        // Scores
+        ctx.font = `bold ${Math.round(W * 0.09)}px monospace`;
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(255,255,255,0.25)';
+        ctx.fillText(`${aScore}`, W / 2, H * 0.3);
+        ctx.fillText(`${pScore}`, W / 2, H * 0.75);
+
+        // AI paddle (top)
+        drawPaddle(aiX, PAD_MARGIN, '#e05a3a');
+        // Player paddle (bottom)
+        drawPaddle(playerX, H - PAD_MARGIN - PADDLE_H, '#4a9fd4');
+
+        // Ball
+        if (!serving) {
+            ctx.save();
+            ctx.shadowBlur = 14; ctx.shadowColor = 'white';
+            ctx.fillStyle = 'white';
+            ctx.beginPath(); ctx.arc(bx, by, BALL_R, 0, Math.PI * 2); ctx.fill();
+            ctx.restore();
+        }
+
+        // Message overlay
+        if (msg) {
+            ctx.fillStyle = 'rgba(0,0,0,0.55)';
+            ctx.fillRect(0, H/2 - 28, W, 44);
+            ctx.font = `${Math.round(W * 0.072)}px monospace`;
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            // wrap long messages
+            const words = msg.split(' '), lines: string[] = [];
+            let cur = '';
+            for (const w of words) {
+                const test = cur ? cur + ' ' + w : w;
+                if (ctx.measureText(test).width > W - 20) { lines.push(cur); cur = w; }
+                else cur = test;
+            }
+            lines.push(cur);
+            const lh = Math.round(W * 0.08);
+            const startY = H/2 - ((lines.length - 1) * lh) / 2 + 6;
+            lines.forEach((l, i) => ctx.fillText(l, W/2, startY + i * lh));
+        }
+
+        // ESC hint (tiny)
+        ctx.font = `${Math.round(W * 0.055)}px monospace`;
+        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.textAlign = 'right';
+        ctx.fillText('✕ tap outside', W - 8, H - 6);
+    }
+
+    function drawPaddle(x: number, y: number, color: string) {
+        ctx.save();
+        ctx.shadowBlur = 12; ctx.shadowColor = color;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.roundRect(x, y, PADDLE_W, PADDLE_H, 4);
+        ctx.fill();
+        ctx.restore();
+    }
+
+    // ── Update ──────────────────────────────────────────────────────────────
+    function update() {
+        if (serving || gameOver) return;
+
+        const pSpd = W * 0.055;
+
+        // Player movement
+        if (keys['ArrowLeft']  || keys['a'] || keys['A']) playerX -= pSpd;
+        if (keys['ArrowRight'] || keys['d'] || keys['D']) playerX += pSpd;
+        if (touchX !== null) playerX += (touchX - PADDLE_W / 2 - playerX) * 0.35;
+        playerX = Math.max(6, Math.min(W - 6 - PADDLE_W, playerX));
+
+        // AI movement — challenging
+        const aiCenter = aiX + PADDLE_W / 2;
+        const aiSpd = W * 0.048;
+        const aiTarget = vy < 0 ? bx : W / 2;   // track ball when coming toward AI, else center
+        const diff = aiTarget - aiCenter;
+        aiX += Math.sign(diff) * Math.min(Math.abs(diff), aiSpd);
+        aiX = Math.max(6, Math.min(W - 6 - PADDLE_W, aiX));
+
+        // Move ball
+        bx += vx; by += vy;
+
+        // Left / right walls
+        if (bx - BALL_R < 6)  { bx = 6 + BALL_R;  vx = Math.abs(vx); }
+        if (bx + BALL_R > W - 6) { bx = W - 6 - BALL_R; vx = -Math.abs(vx); }
+
+        const maxSpd = W * 0.075;
+
+        // Player paddle (bottom)
+        const py = H - PAD_MARGIN - PADDLE_H;
+        if (vy > 0 && by + BALL_R >= py && by + BALL_R <= py + PADDLE_H + vy &&
+            bx >= playerX && bx <= playerX + PADDLE_W) {
+            by = py - BALL_R;
+            const rel = (bx - (playerX + PADDLE_W / 2)) / (PADDLE_W / 2);
+            const spd = Math.min(Math.hypot(vx, vy) * 1.07, maxSpd);
+            const angle = rel * (Math.PI / 3.5);
+            vx = spd * Math.sin(angle);
+            vy = -spd * Math.cos(angle);
+        }
+
+        // AI paddle (top)
+        const ay = PAD_MARGIN;
+        if (vy < 0 && by - BALL_R <= ay + PADDLE_H && by - BALL_R >= ay + vy &&
+            bx >= aiX && bx <= aiX + PADDLE_W) {
+            by = ay + PADDLE_H + BALL_R;
+            const rel = (bx - (aiX + PADDLE_W / 2)) / (PADDLE_W / 2);
+            const spd = Math.min(Math.hypot(vx, vy) * 1.07, maxSpd);
+            const angle = rel * (Math.PI / 3.5);
+            vx = spd * Math.sin(angle);
+            vy =  spd * Math.cos(angle);
+        }
+
+        // Scoring
+        if (by + BALL_R > H) {
+            aScore++;
+            if (aScore >= WIN) { gameOver = true; msg = `AI wins ${aScore}-${pScore}. dark matter: 1, you: 0`; return; }
+            serving = true; bx = W/2; by = H/2; vx = 0; vy = 0;
+            msg = 'tap or ← → to serve';
+        }
+        if (by - BALL_R < 0) {
+            pScore++;
+            if (pScore >= WIN) { gameOver = true; msg = `you win ${pScore}-${aScore} 🏓 top 1% confirmed`; return; }
+            serving = true; bx = W/2; by = H/2; vx = 0; vy = 0;
+            msg = 'tap or ← → to serve';
+        }
+    }
+
+    function loop() { update(); draw(); raf = requestAnimationFrame(loop); }
+
+    // ── Open / close ────────────────────────────────────────────────────────
+    function openGame() {
+        setup();
+        link.classList.add('hidden');
+        wrap.classList.remove('hidden');
+        running = true;
+        initGame();
+        raf = requestAnimationFrame(loop);
+    }
+
+    function closeGame() {
+        running = false;
+        cancelAnimationFrame(raf);
+        wrap.classList.add('hidden');
+        link.classList.remove('hidden');
+        keys = {}; touchX = null;
+    }
+
+    // ── Input ────────────────────────────────────────────────────────────────
+    document.addEventListener('keydown', (e) => {
+        if (!running) return;
+        keys[e.key] = true;
+        if (e.key === 'Escape') { closeGame(); return; }
+        if (['ArrowLeft','ArrowRight','a','A','d','D'].includes(e.key)) e.preventDefault();
+        if (serving || gameOver) { if (gameOver) initGame(); else serve(); }
+    });
+    document.addEventListener('keyup', (e) => { keys[e.key] = false; });
+
+    // Touch: drag finger left/right to move paddle
+    canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (serving || gameOver) { if (gameOver) initGame(); else serve(); return; }
+        touchX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+    }, { passive: false });
+    canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        touchX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+    }, { passive: false });
+    canvas.addEventListener('touchend', () => { touchX = null; });
+
+    // Click canvas to serve
+    canvas.addEventListener('click', () => {
+        if (!running) return;
+        if (gameOver) { initGame(); return; }
+        if (serving) serve();
+    });
+
+    // Click outside the canvas to close
+    document.addEventListener('click', (e) => {
+        if (running && !wrap.contains(e.target as Node)) closeGame();
+    });
+})();
+</script>

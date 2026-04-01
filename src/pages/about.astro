@@ -1,5 +1,4 @@
 ---
-
 import { getEntry, render } from "astro:content";
 import Markdown from "@components/misc/Markdown.astro";
 import I18nKey from "../i18n/i18nKey";
@@ -9,17 +8,192 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 const aboutPost = await getEntry("spec", "about");
 
 if (!aboutPost) {
-	throw new Error("About page content not found");
+    throw new Error("About page content not found");
 }
 
 const { Content } = await render(aboutPost);
+
+const education = [
+    {
+        degree: "Ph.D. Physics",
+        institution: "Queen's University",
+        location: "Canada",
+        period: "2023 – present",
+        detail: "Supervised by Prof. Joseph Bramante. Research in dark matter capture in neutron star cores (CFL phase of quark matter) and the CATCHY experiment. Hosted at the Arthur B. McDonald Canadian Astroparticle Physics Research Institute.",
+        url: "https://www.queensu.ca/physics/",
+    },
+    {
+        degree: "M.Sc. Physics",
+        institution: "Heidelberg University",
+        location: "Germany",
+        period: "Sep 2022",
+        detail: "Thesis: \"Axion Basinschein: A search for gravitationally bound solar axions via stimulated decay into photons.\" Research performed at McGill University under Prof. Katelin Schutz. Grade: 1.1 (Very Good). Overall GPA: 1.3 (Very Good).",
+        url: "https://www.physik.uni-heidelberg.de/?lang=en",
+    },
+    {
+        degree: "B.Sc. Physics",
+        institution: "Leipzig University",
+        location: "Germany",
+        period: "Jul 2019",
+        detail: "Thesis: \"Black Holes, Singularity Theorems and The Global Structure of Spacetime.\" A+ in all mandatory theoretical physics courses.",
+        url: "https://www.physgeo.uni-leipzig.de/en",
+    },
+];
+
+const research = [
+    {
+        role: "PhD Researcher",
+        group: "QHEAT Group, Queen's University",
+        period: "2023 – present",
+        detail: "Dark matter capture in neutron stars (Color-Flavor-Locked quark matter), the CATCHY experiment (Coherent Atomic Transitions from Counterpropagating pulsed HYdrogen), and early universe cosmology. Supervised by Prof. Joseph Bramante.",
+        url: "https://www.queensu.ca/academia/bramante/qheat-group",
+    },
+    {
+        role: "Graduate Research Trainee",
+        group: "McGill University",
+        period: "2021 – 2022",
+        detail: "Supervised by Prof. Katelin Schutz (McGill) and Prof. Joerg Jaeckel (Heidelberg). Fully funded scholarship (CAD 20,500). Research on the Axion Gegenschein effect, culminating in the MSc thesis.",
+        url: "https://www.physics.mcgill.ca/",
+    },
+];
+
+const teaching = [
+    {
+        institution: "Heidelberg University",
+        roles: [
+            { position: "Head Teaching Assistant", course: "Cosmology (Masters Core)", term: "Winter 2024" },
+            { position: "Head Teaching Assistant", course: "Advanced Quantum Field Theory (Masters Specialization)", term: "Winter 2024" },
+            { position: "Graduate Teaching Assistant", course: "General Relativity (Masters Core)", term: "Summer 2021" },
+        ],
+    },
+    {
+        institution: "Queen's University",
+        roles: [
+            { position: "Graduate Teaching Assistant", course: "PHYS 344: Intro to Quantum Mechanics", term: "Fall 2024" },
+            { position: "Graduate Teaching Assistant", course: "PHYS 823: Intro to General Relativity", term: "Winter 2024" },
+            { position: "Graduate Teaching Assistant", course: "PHYS 345: Quantum Physics of Atoms, Nuclei and Particles", term: "Winter 2024" },
+            { position: "Graduate Teaching Assistant", course: "PHYS 118: Basic Physics", term: "Fall 2023" },
+            { position: "Graduate Teaching Assistant", course: "APSC 112: Physics II", term: "Winter 2023" },
+            { position: "Graduate Teaching Assistant", course: "APSC Lab 102: Introduction to Experimentation and Design", term: "Summer 2023" },
+            { position: "Graduate Teaching Assistant", course: "PHYS 490: Nuclear and Particle Physics", term: "Fall 2022" },
+            { position: "Lab Supervisor", course: "APSC Lab 102: Introduction to Experimentation and Design", term: "Fall 2022" },
+        ],
+    },
+    {
+        institution: "Leipzig University",
+        roles: [
+            { position: "Head Teaching Assistant", course: "Mechanics II & Electrodynamics II (Theoretical Physics III)", term: "Winter 2019" },
+            { position: "Head Teaching Assistant", course: "Electrodynamics I (Theoretical Physics II)", term: "Summer 2018" },
+            { position: "Teaching Assistant", course: "Mechanics I, Single Variable Calculus, Linear Algebra I", term: "2016–2019" },
+            { position: "Teaching Assistant", course: "Electrodynamics I, Multivariate Calculus, Linear Algebra II, ODEs", term: "2017–2019" },
+            { position: "Lab Supervisor", course: "Mechanics, Waves and Thermodynamics (Experimental Physics I)", term: "2016–2018" },
+        ],
+    },
+];
 ---
+
 <MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
+    <!-- Bio -->
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
             <Markdown class="mt-2">
                 <Content />
             </Markdown>
         </div>
     </div>
+
+    <!-- CV Sections -->
+    <div class="flex flex-col gap-4 mt-4">
+
+        <!-- Education (open by default) -->
+        <details class="card-base rounded-[var(--radius-large)] overflow-hidden group" open>
+            <summary class="px-9 py-5 cursor-pointer flex items-center justify-between select-none list-none">
+                <span class="text-xl font-bold text-[var(--primary)]">Education</span>
+                <svg class="w-5 h-5 text-[var(--primary)] transition-transform duration-300 group-open:rotate-180"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="px-9 pb-6 flex flex-col gap-5">
+                {education.map((e) => (
+                    <div class="pl-4 border-l-2 border-[var(--primary)]">
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <span class="font-semibold text-[var(--primary)]">
+                                <a href={e.url} target="_blank" rel="noopener" class="hover:underline">{e.degree}</a>
+                            </span>
+                            <span class="text-black/60 dark:text-white/60">·</span>
+                            <span class="text-black/60 dark:text-white/60">{e.institution}, {e.location}</span>
+                            <span class="text-sm text-black/40 dark:text-white/40 ml-auto">{e.period}</span>
+                        </div>
+                        <p class="text-sm text-black/60 dark:text-white/60 mt-1">{e.detail}</p>
+                    </div>
+                ))}
+            </div>
+        </details>
+
+        <!-- Research -->
+        <details class="card-base rounded-[var(--radius-large)] overflow-hidden group">
+            <summary class="px-9 py-5 cursor-pointer flex items-center justify-between select-none list-none">
+                <span class="text-xl font-bold text-[var(--primary)]">Research</span>
+                <svg class="w-5 h-5 text-[var(--primary)] transition-transform duration-300 group-open:rotate-180"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="px-9 pb-6 flex flex-col gap-5">
+                {research.map((r) => (
+                    <div class="pl-4 border-l-2 border-[var(--primary)]">
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <span class="font-semibold text-[var(--primary)]">{r.role}</span>
+                            <span class="text-black/60 dark:text-white/60">·</span>
+                            <span class="text-black/60 dark:text-white/60">
+                                <a href={r.url} target="_blank" rel="noopener" class="hover:underline">{r.group}</a>
+                            </span>
+                            <span class="text-sm text-black/40 dark:text-white/40 ml-auto">{r.period}</span>
+                        </div>
+                        <p class="text-sm text-black/60 dark:text-white/60 mt-1">{r.detail}</p>
+                    </div>
+                ))}
+            </div>
+        </details>
+
+        <!-- Teaching -->
+        <details id="teaching" class="card-base rounded-[var(--radius-large)] overflow-hidden group">
+            <summary class="px-9 py-5 cursor-pointer flex items-center justify-between select-none list-none">
+                <span class="text-xl font-bold text-[var(--primary)]">Teaching</span>
+                <svg class="w-5 h-5 text-[var(--primary)] transition-transform duration-300 group-open:rotate-180"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </summary>
+            <div class="px-9 pb-6 flex flex-col gap-7">
+                {teaching.map((t) => (
+                    <div>
+                        <h3 class="font-semibold text-[var(--primary)] mb-3">{t.institution}</h3>
+                        <div class="flex flex-col gap-2">
+                            {t.roles.map((r) => (
+                                <div class="pl-4 border-l-2 border-[var(--primary)] flex flex-wrap items-baseline gap-x-2">
+                                    <span class="text-sm font-medium text-black/80 dark:text-white/80">{r.course}</span>
+                                    <span class="text-xs text-black/40 dark:text-white/40">· {r.position} · {r.term}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </details>
+
+    </div>
 </MainGridLayout>
+
+<script>
+    // Handles direct URL loads of /about/?open=teaching (Swup navigation is handled in Layout.astro)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('open') === 'teaching') {
+        const el = document.getElementById('teaching');
+        if (el) {
+            (el as HTMLDetailsElement).open = true;
+            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+        }
+    }
+</script>

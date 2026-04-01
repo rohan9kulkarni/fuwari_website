@@ -1,0 +1,45 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getCollection } from "astro:content";
+import { getPostUrlBySlug, url } from "../../utils/url-utils";
+
+const teachingPosts = (await getCollection("posts", ({ data }) =>
+    data.category === "Teaching" && !data.draft
+)).sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+---
+
+<MainGridLayout title="Teaching">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+
+            <h1 class="text-3xl font-bold mb-2 text-[var(--primary)]">Teaching</h1>
+            <div class="border-b border-[var(--line-divider)] mb-6"></div>
+
+            <p class="text-black/60 dark:text-white/60 mb-8">
+                Below are courses for which I maintained a dedicated page with tutorial notes, slides, and resources.
+                For a full overview of my teaching history,
+                <a href={url('/about/?open=teaching')} class="text-[var(--primary)] hover:underline">see the Teaching section on my About page →</a>
+            </p>
+
+            <div class="flex flex-col gap-4">
+                {teachingPosts.map((post) => (
+                    <a href={getPostUrlBySlug(post.slug)}
+                       class="pl-4 border-l-2 border-[var(--primary)] group block transition">
+                        <div class="font-semibold text-[var(--primary)] group-hover:underline">
+                            {post.data.title}
+                        </div>
+                        <div class="text-sm text-black/60 dark:text-white/60 mt-0.5">
+                            {post.data.description}
+                        </div>
+                        <div class="flex gap-2 mt-1 flex-wrap">
+                            {post.data.tags?.map((tag: string) => (
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--btn-regular-bg)] text-[var(--btn-regular-text)]">{tag}</span>
+                            ))}
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+        </div>
+    </div>
+</MainGridLayout>

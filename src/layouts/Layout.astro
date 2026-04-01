@@ -432,6 +432,16 @@ const setup = () => {
 		if (heightExtend) {
 			heightExtend.classList.remove('hidden')
 		}
+
+		// open the Teaching section on About page when navigated via ?open=teaching
+		const params = new URLSearchParams(window.location.search);
+		if (params.get('open') === 'teaching') {
+			const el = document.getElementById('teaching');
+			if (el) {
+				(el as HTMLDetailsElement).open = true;
+				setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+			}
+		}
 	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {

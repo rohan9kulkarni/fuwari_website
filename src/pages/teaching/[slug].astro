@@ -1,0 +1,40 @@
+---
+// src/pages/teaching/[slug].astro
+import { getCollection, getEntry, render } from "astro:content";
+import Markdown from "@components/misc/Markdown.astro";
+import I18nKey from "../../i18n/i18nKey";
+import { i18n } from "../../i18n/translation";
+import MainGridLayout from "../../layouts/MainGridLayout.astro";
+
+// Create static routes for every teaching entry
+export async function getStaticPaths() {
+  const entries = await getCollection("teaching");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntry("teaching", slug);
+
+if (!entry) {
+  // Astro will show a 404 if this throws during build; you can return null instead if you prefer.
+  throw new Error(`Teaching page not found: ${slug}`);
+}
+
+const { Content } = await render(entry);
+const title = entry.data?.title ?? slug;
+---
+<MainGridLayout title={title} description={entry.data?.summary ?? title}>
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 relative w-full ">
+      <h1 class="text-3xl font-bold mb-4">{title}</h1>
+
+      {entry.data?.date ? <div class="text-sm opacity-60 mb-4">Date: {entry.data.date}</div> : null}
+
+      <Markdown>
+        <Content />
+      </Markdown>
+    </div>
+  </div>
+</MainGridLayout>

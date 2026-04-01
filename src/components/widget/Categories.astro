@@ -23,7 +23,7 @@ const style = Astro.props.style;
 <WidgetLayout name={i18n(I18nKey.categories)} id="categories" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT}
                 class={className} style={style}
 >
-    {categories.map((c) =>
+    {categories.filter((c) => c.name.trim().toLowerCase() !== "teaching").map((c) =>
         <ButtonLink
             url={c.url}
             badge={String(c.count)}

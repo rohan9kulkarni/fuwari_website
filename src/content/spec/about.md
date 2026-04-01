@@ -1,9 +1,12 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
-::github{repo="saicaca/fuwari"}
+# About Me
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+Welcome to my brand new homepage (atleast as of Nov 2025)! I'm thrilled to share my journey as a PhD physics student at [Queen's University](https://www.queensu.ca/physics/) (host to the [Arthur B. McDonald Canadian Astroparticle Physics Research Institute](https://mcdonaldinstitute.ca/)), where I'm actively engaged in groundbreaking research as part of the [QHEAT group](https://www.queensu.ca/academia/bramante/qheat-group) (Queen's High Energy and Astroparticle Theory). Under the guidance of my esteemed supervisor, [Joe Bramante](https://www.queensu.ca/academia/bramante/), I delve into fascinating realms of scientific inquiry, exploring concepts ranging from next-generation dark matter detectors fueled by supperradiance to unraveling the mysteries of quark matter within neutron star cores and probing the depths of early universe cosmology. Currently, I'm extending my research horizons as a visiting researcher at Heidelberg University, collaborating with Joerg Jaeckel on innovative projects centered around axions and dark matter.
+
+I earned my M.Sc. Physics degree from [Heidelberg University](https://www.physik.uni-heidelberg.de/?lang=en) in Germany. For my master's thesis, I performed research at [McGill University](https://www.physics.mcgill.ca/) in Canada as a graduate research trainee under the supervision of [Katelin Schutz](https://katelinschutz.com/). My final thesis titled *Axion Basinschein : A search for gravitationally bound solar axions via stimulated decay into photons*, which you can find below under projects.
+
+Prior to Heidelberg, I graduated with a B.Sc in Physics from [Leipzig University](https://www.physgeo.uni-leipzig.de/en) in Germany. During my undergraduate years, I worked as a teaching assistant in Theoretical Physics, Mathematics, and Experimental Physics, totalling over 250 hours of undergraduate-level classroom teaching. My final bachelor’s thesis had the topic *Black holes, Singularity theorems and the Global Structure of Spacetime*.
+
+The primary purpose of this website apart from *who I am and what I have done* is outreach. These past five-six years of my life revolved around one thing - *Theoretical Physics*. While on this incredible journey, there were numerous instances where I had the thought, "*if only someone had told me that, I would have saved hours of work*" or "*that one statement made me understand XYZ*." I want to pass on the wisdom and tools I gained on this journey to my colleagues and anyone trying to decipher the breathtaking world of physics. You can find my posts under the Archive tab — ranging from physics explainers and literature notes to practical guides for students navigating graduate applications.
+
+I hope whoever found this website gains something valuable from it. If not, you just got acquainted with another friendly face :). Also, feel free to reach out using the contact at the bottom of the webpage. (As most academics, if I don't reply after a week or two - don't be shy to send a catch up) :D

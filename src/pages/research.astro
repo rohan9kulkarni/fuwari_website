@@ -1,0 +1,74 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import publications from "../data/publications.json";
+import projects from "../data/projects.json";
+
+const publicationsByYear = publications.reduce((acc, pub) => {
+    acc[pub.year] = acc[pub.year] || [];
+    acc[pub.year].push(pub);
+    return acc;
+}, {} as Record<number, typeof publications>);
+
+const sortedYears = Object.keys(publicationsByYear)
+    .map(Number)
+    .sort((a, b) => b - a);
+---
+
+<MainGridLayout title="Research">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+
+            <!-- Publications -->
+            <h1 class="text-3xl font-bold mb-2 text-[var(--primary)]">Publications</h1>
+            <div class="border-b border-[var(--line-divider)] mb-6"></div>
+
+            {sortedYears.map((year) => (
+                <div class="mb-6">
+                    <h2 class="text-lg font-semibold text-[var(--primary)] mb-3">{year}</h2>
+                    <div class="flex flex-col gap-4">
+                        {publicationsByYear[year].map((pub) => (
+                            <div class="pl-4 border-l-2 border-[var(--primary)]">
+                                <div class="font-medium text-[var(--primary)]">
+                                    {pub.url
+                                        ? <a href={pub.url} target="_blank" rel="noopener" class="hover:underline">{pub.title}</a>
+                                        : pub.title
+                                    }
+                                </div>
+                                <div class="text-sm text-black/60 dark:text-white/60 mt-0.5">{pub.authors}</div>
+                                <div class="text-sm mt-0.5">
+                                    <span class="italic text-black/60 dark:text-white/60">{pub.journal}</span>
+                                    {pub.doi && (
+                                        <span> · <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener" class="text-[var(--primary)] hover:underline">DOI</a></span>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+
+            <!-- Projects -->
+            <h1 class="text-3xl font-bold mt-10 mb-2 text-[var(--primary)]">Projects</h1>
+            <div class="border-b border-[var(--line-divider)] mb-6"></div>
+
+            <div class="flex flex-col gap-4">
+                {projects.map((project) => (
+                    <div class="pl-4 border-l-2 border-[var(--primary)]">
+                        <div class="flex items-center gap-2">
+                            <span class="font-medium text-[var(--primary)]">
+                                {project.url
+                                    ? <a href={project.url} target="_blank" rel="noopener" class="hover:underline">{project.title}</a>
+                                    : project.title
+                                }
+                            </span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--btn-regular-bg)] text-[var(--btn-regular-text)]">{project.degree}</span>
+                            <span class="text-sm text-black/60 dark:text-white/60">{project.year}</span>
+                        </div>
+                        <div class="text-sm text-black/60 dark:text-white/60 mt-0.5">{project.description}</div>
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    </div>
+</MainGridLayout>
