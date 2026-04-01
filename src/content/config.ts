@@ -28,7 +28,7 @@ const teachingCollection = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
-		date: z.string().optional(),
+		date: z.union([z.string(), z.date()]).optional(),
 		summary: z.string().optional(),
 	}),
 });
@@ -36,4 +36,5 @@ const teachingCollection = defineCollection({
 export const collections = {
 	posts: postsCollection,
 	spec: specCollection,
+	teaching: teachingCollection,
 };

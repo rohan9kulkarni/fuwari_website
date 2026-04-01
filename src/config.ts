@@ -54,6 +54,11 @@ export const navBarConfig: NavBarConfig = {
 			url: "/teaching/",
 			external: false,
 		},
+		{
+			name: "Resources",
+			url: "/resources/",
+			external: false,
+		},
 	],
 };
 

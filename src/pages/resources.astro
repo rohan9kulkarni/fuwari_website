@@ -1,0 +1,67 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { Icon } from "astro-icon/components";
+import resources from "../data/resources.json";
+
+const resourcesByCategory = resources.reduce(
+	(acc, resource) => {
+		acc[resource.category] = acc[resource.category] || [];
+		acc[resource.category].push(resource);
+		return acc;
+	},
+	{} as Record<string, typeof resources>,
+);
+
+const categories = Object.keys(resourcesByCategory);
+const isDev = import.meta.env.DEV;
+---
+
+<MainGridLayout title="Resources">
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+
+            {!isDev && <div class="text-center py-20">
+                <h1 class="text-3xl font-bold mb-4">404 - Not Found</h1>
+                <p class="text-black/60 dark:text-white/60">This page is only available in development mode.</p>
+                <a href="/" class="mt-8 inline-block btn-regular px-6 py-2 rounded-lg">Back to Home</a>
+            </div>}
+
+            {isDev && <>
+                <h1 class="text-3xl font-bold mb-2 text-[var(--primary)]">Resources</h1>
+                <div class="border-b border-[var(--line-divider)] mb-6"></div>
+
+                <p class="text-black/60 dark:text-white/60 mb-8">
+                    A collection of lecture notes, PDF resources, and other materials.
+                </p>
+
+                {categories.map((category) => (
+                    <div class="mb-10">
+                        <h2 class="text-2xl font-bold text-[var(--primary)] mb-4">{category}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {resourcesByCategory[category].map((resource) => (
+                                <a href={"/resources/" + resource.filename} target="_blank" rel="noopener"
+                                   class="flex items-center gap-4 p-4 rounded-xl bg-[var(--btn-regular-bg)] hover:bg-[var(--btn-regular-bg-hover)] transition-colors group">
+                                    <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-red-500/10 text-red-500 group-hover:bg-red-500/20 transition-colors">
+                                        <Icon name="fa6-solid:file-pdf" class="text-xl"></Icon>
+                                    </div>
+                                    <div class="flex-1 overflow-hidden">
+                                        <div class="font-medium text-[var(--btn-regular-text)] truncate group-hover:text-[var(--primary)] transition-colors">
+                                            {resource.title}
+                                        </div>
+                                        <div class="text-xs text-[var(--btn-regular-text)]/60 truncate">
+                                            {resource.filename}
+                                        </div>
+                                    </div>
+                                    <div class="text-[var(--btn-regular-text)]/40 group-hover:text-[var(--primary)] transition-colors">
+                                        <Icon name="fa6-solid:arrow-up-right-from-square" class="text-sm"></Icon>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </>}
+
+        </div>
+    </div>
+</MainGridLayout>

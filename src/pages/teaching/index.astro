@@ -1,11 +1,14 @@
 ---
-import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getCollection } from "astro:content";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getPostUrlBySlug, url } from "../../utils/url-utils";
 
-const teachingPosts = (await getCollection("posts", ({ data }) =>
-    data.category === "Teaching" && !data.draft
-)).sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+const teachingPosts = (
+	await getCollection(
+		"posts",
+		({ data }) => data.category === "Teaching" && !data.draft,
+	)
+).sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
 <MainGridLayout title="Teaching">

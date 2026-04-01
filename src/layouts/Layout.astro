@@ -99,6 +99,17 @@ const bannerOffset =
 		<meta name="twitter:title" content={pageTitle}>
 		<meta name="twitter:description" content={description || pageTitle}>
 
+		{import.meta.env.PROD && (
+			<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-9TMZNHK1JN"></script>
+			<script is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'G-9TMZNHK1JN');
+			</script>
+		)}
+
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		{favicons.map(favicon => (

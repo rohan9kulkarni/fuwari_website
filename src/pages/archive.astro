@@ -5,7 +5,9 @@ import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPostsList } from "../utils/content-utils";
 
-const sortedPostsList = (await getSortedPostsList()).filter(p => p.data.category !== 'Teaching');
+const sortedPostsList = (await getSortedPostsList()).filter(
+	(p) => p.data.category !== "Teaching",
+);
 ---
 
 <MainGridLayout title={i18n(I18nKey.archive)}>

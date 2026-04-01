@@ -1,26 +1,20 @@
 ---
 // src/pages/teaching/[slug].astro
-import { getCollection, getEntry, render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "../../i18n/i18nKey";
-import { i18n } from "../../i18n/translation";
 import MainGridLayout from "../../layouts/MainGridLayout.astro";
 
 // Create static routes for every teaching entry
 export async function getStaticPaths() {
-  const entries = await getCollection("teaching");
-  return entries.map((entry) => ({
-    params: { slug: entry.slug },
-  }));
+	const entries = await getCollection("teaching");
+	return entries.map((entry) => ({
+		params: { slug: entry.id.replace(/\.md$/, "") },
+		props: { entry },
+	}));
 }
 
+const { entry } = Astro.props;
 const { slug } = Astro.params;
-const entry = await getEntry("teaching", slug);
-
-if (!entry) {
-  // Astro will show a 404 if this throws during build; you can return null instead if you prefer.
-  throw new Error(`Teaching page not found: ${slug}`);
-}
 
 const { Content } = await render(entry);
 const title = entry.data?.title ?? slug;
@@ -32,7 +26,7 @@ const title = entry.data?.title ?? slug;
 
       {entry.data?.date ? <div class="text-sm opacity-60 mb-4">Date: {entry.data.date}</div> : null}
 
-      <Markdown>
+      <Markdown class="">
         <Content />
       </Markdown>
     </div>

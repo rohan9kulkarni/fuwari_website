@@ -8,87 +8,157 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 const aboutPost = await getEntry("spec", "about");
 
 if (!aboutPost) {
-    throw new Error("About page content not found");
+	throw new Error("About page content not found");
 }
 
 const { Content } = await render(aboutPost);
 
 const education = [
-    {
-        degree: "Ph.D. Physics",
-        institution: "Queen's University",
-        location: "Canada",
-        period: "2023 – present",
-        detail: "Supervised by Prof. Joseph Bramante. Research in dark matter capture in neutron star cores (CFL phase of quark matter) and the CATCHY experiment. Hosted at the Arthur B. McDonald Canadian Astroparticle Physics Research Institute.",
-        url: "https://www.queensu.ca/physics/",
-    },
-    {
-        degree: "M.Sc. Physics",
-        institution: "Heidelberg University",
-        location: "Germany",
-        period: "Sep 2022",
-        detail: "Thesis: \"Axion Basinschein: A search for gravitationally bound solar axions via stimulated decay into photons.\" Research performed at McGill University under Prof. Katelin Schutz. Grade: 1.1 (Very Good). Overall GPA: 1.3 (Very Good).",
-        url: "https://www.physik.uni-heidelberg.de/?lang=en",
-    },
-    {
-        degree: "B.Sc. Physics",
-        institution: "Leipzig University",
-        location: "Germany",
-        period: "Jul 2019",
-        detail: "Thesis: \"Black Holes, Singularity Theorems and The Global Structure of Spacetime.\" A+ in all mandatory theoretical physics courses.",
-        url: "https://www.physgeo.uni-leipzig.de/en",
-    },
+	{
+		degree: "Ph.D. Physics",
+		institution: "Queen's University",
+		location: "Canada",
+		period: "2023 – present",
+		detail:
+			"Supervised by Prof. Joseph Bramante. Research in dark matter capture in neutron star cores (CFL phase of quark matter) and the CATCHY experiment. Hosted at the Arthur B. McDonald Canadian Astroparticle Physics Research Institute.",
+		url: "https://www.queensu.ca/physics/",
+	},
+	{
+		degree: "M.Sc. Physics",
+		institution: "Heidelberg University",
+		location: "Germany",
+		period: "Sep 2022",
+		detail:
+			'Thesis: "Axion Basinschein: A search for gravitationally bound solar axions via stimulated decay into photons." Research performed at McGill University under Prof. Katelin Schutz. Grade: 1.1 (Very Good). Overall GPA: 1.3 (Very Good).',
+		url: "https://www.physik.uni-heidelberg.de/?lang=en",
+	},
+	{
+		degree: "B.Sc. Physics",
+		institution: "Leipzig University",
+		location: "Germany",
+		period: "Jul 2019",
+		detail:
+			'Thesis: "Black Holes, Singularity Theorems and The Global Structure of Spacetime." A+ in all mandatory theoretical physics courses.',
+		url: "https://www.physgeo.uni-leipzig.de/en",
+	},
 ];
 
 const research = [
-    {
-        role: "PhD Researcher",
-        group: "QHEAT Group, Queen's University",
-        period: "2023 – present",
-        detail: "Dark matter capture in neutron stars (Color-Flavor-Locked quark matter), the CATCHY experiment (Coherent Atomic Transitions from Counterpropagating pulsed HYdrogen), and early universe cosmology. Supervised by Prof. Joseph Bramante.",
-        url: "https://www.queensu.ca/academia/bramante/qheat-group",
-    },
-    {
-        role: "Graduate Research Trainee",
-        group: "McGill University",
-        period: "2021 – 2022",
-        detail: "Supervised by Prof. Katelin Schutz (McGill) and Prof. Joerg Jaeckel (Heidelberg). Fully funded scholarship (CAD 20,500). Research on the Axion Gegenschein effect, culminating in the MSc thesis.",
-        url: "https://www.physics.mcgill.ca/",
-    },
+	{
+		role: "PhD Researcher",
+		group: "QHEAT Group, Queen's University",
+		period: "2023 – present",
+		detail:
+			"Dark matter capture in neutron stars (Color-Flavor-Locked quark matter), the CATCHY experiment (Coherent Atomic Transitions from Counterpropagating pulsed HYdrogen), and early universe cosmology. Supervised by Prof. Joseph Bramante.",
+		url: "https://www.queensu.ca/academia/bramante/qheat-group",
+	},
+	{
+		role: "Graduate Research Trainee",
+		group: "McGill University",
+		period: "2021 – 2022",
+		detail:
+			"Supervised by Prof. Katelin Schutz (McGill) and Prof. Joerg Jaeckel (Heidelberg). Fully funded scholarship (CAD 20,500). Research on the Axion Gegenschein effect, culminating in the MSc thesis.",
+		url: "https://www.physics.mcgill.ca/",
+	},
 ];
 
 const teaching = [
-    {
-        institution: "Heidelberg University",
-        roles: [
-            { position: "Head Teaching Assistant", course: "Cosmology (Masters Core)", term: "Winter 2024" },
-            { position: "Head Teaching Assistant", course: "Advanced Quantum Field Theory (Masters Specialization)", term: "Winter 2024" },
-            { position: "Graduate Teaching Assistant", course: "General Relativity (Masters Core)", term: "Summer 2021" },
-        ],
-    },
-    {
-        institution: "Queen's University",
-        roles: [
-            { position: "Graduate Teaching Assistant", course: "PHYS 344: Intro to Quantum Mechanics", term: "Fall 2024" },
-            { position: "Graduate Teaching Assistant", course: "PHYS 823: Intro to General Relativity", term: "Winter 2024" },
-            { position: "Graduate Teaching Assistant", course: "PHYS 345: Quantum Physics of Atoms, Nuclei and Particles", term: "Winter 2024" },
-            { position: "Graduate Teaching Assistant", course: "PHYS 118: Basic Physics", term: "Fall 2023" },
-            { position: "Graduate Teaching Assistant", course: "APSC 112: Physics II", term: "Winter 2023" },
-            { position: "Graduate Teaching Assistant", course: "APSC Lab 102: Introduction to Experimentation and Design", term: "Summer 2023" },
-            { position: "Graduate Teaching Assistant", course: "PHYS 490: Nuclear and Particle Physics", term: "Fall 2022" },
-            { position: "Lab Supervisor", course: "APSC Lab 102: Introduction to Experimentation and Design", term: "Fall 2022" },
-        ],
-    },
-    {
-        institution: "Leipzig University",
-        roles: [
-            { position: "Head Teaching Assistant", course: "Mechanics II & Electrodynamics II (Theoretical Physics III)", term: "Winter 2019" },
-            { position: "Head Teaching Assistant", course: "Electrodynamics I (Theoretical Physics II)", term: "Summer 2018" },
-            { position: "Teaching Assistant", course: "Mechanics I, Single Variable Calculus, Linear Algebra I", term: "2016–2019" },
-            { position: "Teaching Assistant", course: "Electrodynamics I, Multivariate Calculus, Linear Algebra II, ODEs", term: "2017–2019" },
-            { position: "Lab Supervisor", course: "Mechanics, Waves and Thermodynamics (Experimental Physics I)", term: "2016–2018" },
-        ],
-    },
+	{
+		institution: "Heidelberg University",
+		roles: [
+			{
+				position: "Head Teaching Assistant",
+				course: "Cosmology (Masters Core)",
+				term: "Winter 2024",
+			},
+			{
+				position: "Head Teaching Assistant",
+				course: "Advanced Quantum Field Theory (Masters Specialization)",
+				term: "Winter 2024",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "General Relativity (Masters Core)",
+				term: "Summer 2021",
+			},
+		],
+	},
+	{
+		institution: "Queen's University",
+		roles: [
+			{
+				position: "Graduate Teaching Assistant",
+				course: "PHYS 344: Intro to Quantum Mechanics",
+				term: "Fall 2024",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "PHYS 823: Intro to General Relativity",
+				term: "Winter 2024",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "PHYS 345: Quantum Physics of Atoms, Nuclei and Particles",
+				term: "Winter 2024",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "PHYS 118: Basic Physics",
+				term: "Fall 2023",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "APSC 112: Physics II",
+				term: "Winter 2023",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "APSC Lab 102: Introduction to Experimentation and Design",
+				term: "Summer 2023",
+			},
+			{
+				position: "Graduate Teaching Assistant",
+				course: "PHYS 490: Nuclear and Particle Physics",
+				term: "Fall 2022",
+			},
+			{
+				position: "Lab Supervisor",
+				course: "APSC Lab 102: Introduction to Experimentation and Design",
+				term: "Fall 2022",
+			},
+		],
+	},
+	{
+		institution: "Leipzig University",
+		roles: [
+			{
+				position: "Head Teaching Assistant",
+				course: "Mechanics II & Electrodynamics II (Theoretical Physics III)",
+				term: "Winter 2019",
+			},
+			{
+				position: "Head Teaching Assistant",
+				course: "Electrodynamics I (Theoretical Physics II)",
+				term: "Summer 2018",
+			},
+			{
+				position: "Teaching Assistant",
+				course: "Mechanics I, Single Variable Calculus, Linear Algebra I",
+				term: "2016–2019",
+			},
+			{
+				position: "Teaching Assistant",
+				course:
+					"Electrodynamics I, Multivariate Calculus, Linear Algebra II, ODEs",
+				term: "2017–2019",
+			},
+			{
+				position: "Lab Supervisor",
+				course: "Mechanics, Waves and Thermodynamics (Experimental Physics I)",
+				term: "2016–2018",
+			},
+		],
+	},
 ];
 ---
 
