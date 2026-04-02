@@ -1,119 +1,101 @@
 ---
 title: "Bose-Einstein Condensation (1): Can it occur in 1D and 2D?"
 published: 2024-05-24
-description: "Checking if Bose-Einstein Condensation (BEC) can occur in 1D and 2D for free particles using periodic boundary conditions."
+description: "Checking if Bose-Einstein Condensation can occur in 1D and 2D for free particles using periodic boundary conditions — and why the density of states is the key."
 tags: [Statistical Mechanics]
 category: Notes
 draft: false
 ---
 
-> **Problem**
->
-> Does BEC occur in 1d or 2d (for free particles using periodic boundary conditions)? Prove your answers with complete calculations.
+> **Problem:** Does BEC occur in 1D or 2D for free particles with periodic boundary conditions? Prove your answers with complete calculations.
 
-## Solution
+---
 
-Our goal for this problem is to check if BEC occurs for 1D and 2D with periodic boundary conditions. I want to start with the 2D case.
+## Why the density of states decides everything
 
-One crucial point where we get BEC in the 3D case is from the density of states (DOS). Particularly, we realize that we approximated the sum for DOS to an integral without considering the zero energy modes of our system. The zero energy modes become more and more relevant when the temperature keeps dropping or rather when the fugacity $z \to 1$ (this is the low-temperature limit). So to take care of these missed states, we put a correction factor in the number density, and after working out some algebra for this new number density, we establish that BECs must exist in the 3D case.
+Before diving into 1D and 2D, it's worth being precise about what "BEC occurs" actually means mechanically.
 
-So to start from the bottom in the case of 1D or 2D, we need to go back to the definition of DOS in those dimensions.
+In the grand canonical ensemble, the average number of particles in *excited* states (everything above the ground state) is:
 
-Starting with 2D:
+$$N_\text{ex}(T, \mu) = \int_0^\infty \frac{g(E)}{z^{-1}e^{\beta E} - 1}\, dE$$
 
-The energy eigenstates for particles in a box of length $L$ and periodic boundary conditions is given by,
+where $g(E)$ is the density of states, $\beta = 1/k_BT$, and $z = e^{\beta\mu}$ is the fugacity with $\mu \leq 0$ for bosons.
 
-$$
-\psi = \frac{1}{\sqrt{V}} e^{i \vec{k} \cdot \vec{x}},
-$$
+The fugacity is bounded: $z \in [0, 1)$, with $z \to 1$ corresponding to $\mu \to 0^-$ (the low-temperature limit). So the **maximum** number of particles that excited states can accommodate at temperature $T$ is:
 
-where $V = L^2$ and the wavevector $\vec{k} = (k_1, k_2)$ are quantized as
+$$N_\text{ex}^\text{max}(T) = \lim_{z\to 1} \int_0^\infty \frac{g(E)}{e^{\beta E} - 1}\, dE$$
 
-$$
-k_i = \frac{2\pi n_i}{L}, \quad n_i \in \mathbb{Z},
-$$
+**BEC occurs if and only if $N_\text{ex}^\text{max}(T)$ is finite.** If it's finite, then for $N > N_\text{ex}^\text{max}$ the excess particles *must* pile up in the ground state — that's the condensate. If the integral diverges, excited states can absorb any number of particles at any temperature, and there's never any need for macroscopic ground state occupation.
 
-and the energy of the particle is given by,
+Everything comes down to whether this integral converges at $z = 1$.
 
-$$
-E_{\vec{n}} = \frac{\hbar^2 k^2}{2m} = \frac{4\pi^2\hbar^2}{2mL^2} (n_1^2 + n_2^2)
-$$
+---
 
-where $k = |\vec{k}|$.
+## Density of states in $d$ dimensions
 
-The quantum mechanical single particle partition function is given by the sum over all energy eigenstates,
+For free particles in a $d$-dimensional box of side $L$ with periodic boundary conditions, the allowed wavevectors are $k_i = 2\pi n_i / L$ and the energy is $E = \hbar^2 k^2 / 2m$. Converting the sum over states to an integral in the thermodynamic limit:
 
-$$
-Z_1 = \sum_{\vec{n}} e^{-\beta E_{\vec{n}}}
-$$
+$$\sum_{\vec{n}} \longrightarrow \frac{L^d}{(2\pi)^d} \int d^d k = \frac{V}{(2\pi)^d} \cdot S_d \int_0^\infty k^{d-1}\, dk$$
 
-> **Comment**
-> 
-> Now the main question here is how to evaluate the sum. The usual way is to approximate this sum with an integral. The way we come to this approximation is first by recalling that
-> 
-> $$
-> \lambda = \sqrt{\frac{2\pi\hbar^2}{m k_B T}}
-> $$
-> 
-> is the thermal wavelength of a particle. Now looking at $Z_1$, we can see that we have exponentiated the energy, which in terms of this wavelength can be written as,
-> 
-> $$
-> \beta E_{\vec{n}} = \beta \frac{4\pi^2\hbar^2}{2mL^2} n^2 = \frac{1}{k_B T} \frac{\lambda^2 k_B T}{L^2} n^2 = \frac{\lambda^2 n^2}{L^2}
-> $$
-> 
-> For any macroscopic box (1 meter length) containing say a mole of particles at room temperature (293 K), $L \gg \lambda$ is true. This means that the exponent is an extremely small number. In other words, there are many states $E_{\vec{n}} < k_B T$, where all of them contribute to the sum.
+where $S_d$ is the surface area of a unit sphere in $d$ dimensions ($S_1 = 2$, $S_2 = 2\pi$, $S_3 = 4\pi$). Changing variables $k \to E$ using $E = \hbar^2 k^2/2m$:
 
-This is the point where we say that we can approximate the sum to an integral (due to the comment above),
+$$k = \sqrt{\frac{2mE}{\hbar^2}}, \qquad dk = \sqrt{\frac{m}{2\hbar^2 E}}\, dE$$
 
-$$
-\sum_{n} \approx \int d^3n = \frac{V}{(2\pi)^3} \int d^3k
-$$
+so $k^{d-1}\,dk \propto E^{d/2 - 1}\,dE$, giving:
 
-This is true for 3D, for 2D we will have an integral over $d^2k$ instead giving us,
+$$\boxed{g(E) \propto E^{d/2 - 1}}$$
 
-$$
-\begin{aligned}
-\sum_{n} &\approx \int d^2n = \frac{V}{(2\pi)^2} \int d^2\vec{k} \\
-&= \frac{V}{(2\pi)^2} \iint dk \, dk_\theta \\
-&= \frac{V}{(2\pi)^2} 2\pi \int k \, dk \\
-&= \frac{V}{2\pi} \int k \, dk
-\end{aligned}
-$$
+This single formula tells the whole story:
+- **3D:** $g(E) \propto E^{1/2}$ — grows with energy
+- **2D:** $g(E) \propto E^0$ — constant
+- **1D:** $g(E) \propto E^{-1/2}$ — diverges as $E \to 0$
 
-where we changed to polar coordinates.
+---
 
-At this point we want to change the integration variables from $k \to E$,
+## 2D: the integral diverges logarithmically
 
-$$
-E = \frac{\hbar^2 k^2}{2m} \implies dE = \frac{\hbar^2 k}{m} dk \implies k \, dk = \frac{m}{\hbar^2} dE
-$$
+The explicit 2D density of states (for spin-0 bosons, $V = L^2$):
 
-Now we are in a position to change the variables for the sum over $n$ from $k \to E$,
+$$g_{2D}(E) = \frac{Vm}{2\pi\hbar^2}$$
 
-$$
-\begin{aligned}
-\sum_{n} &\approx \int d^2n = \frac{V}{2\pi} \int k \, dk \\
-&= \frac{V}{2\pi} \int \frac{m}{\hbar^2} dE \\
-&= \int g(E) dE
-\end{aligned}
-$$
+Now check whether $N_\text{ex}^\text{max}$ is finite:
 
-Recall that by the definition of density of states, $g(E)dE$ corresponds to "number of states between $[E, E + dE]$." The integration over this quantity is exactly equivalent to the sum we have been talking about, explaining the last equality in the equation above.
+$$N_\text{ex}^\text{max} = \frac{Vm}{2\pi\hbar^2} \int_0^\infty \frac{dE}{e^{\beta E} - 1}$$
 
-This gives us the DOS in 2D to be,
+Near $E = 0$, the Bose-Einstein factor behaves as $\frac{1}{e^{\beta E}-1} \approx \frac{1}{\beta E}$, so the integrand goes as $\sim 1/E$. This gives a **logarithmic divergence** at the lower limit:
 
-$$
-g(E) = \frac{Vm}{2\pi\hbar^2}
-$$
+$$\int_0^\infty \frac{dE}{e^{\beta E} - 1} \sim \int_0^\epsilon \frac{dE}{\beta E} = \frac{1}{\beta}\ln(\epsilon)\Big|_0 \to \infty$$
 
-> **Comment**
-> 
-> I have not included the spin in the computation. We would have a factor of $(2S + 1)$ in front of the expression for $g(E)$ for a particle of spin $S$. The expression that we have for DOS is valid for spin 0 bosons.
+$N_\text{ex}^\text{max} = \infty$ — excited states can accommodate infinitely many particles at any finite temperature. **BEC does not occur in 2D.**
 
-An extremely analogous computation gives us the DOS in 1D,
+---
 
-$$
-\sum_{k} \to \int dn = \frac{L}{2\pi} \sqrt{\frac{2m}{\hbar^2}} \int \frac{1}{\sqrt{E}} dE
-$$
+## 1D: the integral diverges even faster
 
-Unlike in the case of 3D, where the DOS is proportional to $\sqrt{E}$, for 1D and 2D we have DOS proportional to $E^{-1/2}$, constant respectively. These give rise to a divergent series (unlike $g_{3/2}(z)$ in the case of 3D). Giving us fact that, as temperature goes to zero, the number of states not in the ground state is non-zero and finitely large. This means, **we cannot have BEC in 1D and 2D**.
+In 1D:
+
+$$g_{1D}(E) = \frac{L}{\pi\hbar}\sqrt{\frac{m}{2E}} \propto E^{-1/2}$$
+
+The integral becomes:
+
+$$N_\text{ex}^\text{max} \propto \int_0^\infty \frac{E^{-1/2}}{e^{\beta E} - 1}\, dE$$
+
+Near $E = 0$, the integrand behaves as $\sim E^{-1/2} \cdot \frac{1}{\beta E} = \frac{1}{\beta} E^{-3/2}$, which diverges **faster** than in 2D:
+
+$$\int_0^\epsilon E^{-3/2}\, dE = \left[-2E^{-1/2}\right]_0^\epsilon \to \infty$$
+
+**BEC does not occur in 1D either** — and the failure is even more severe than in 2D.
+
+---
+
+## Summary
+
+| Dimension | $g(E)$ | Integral at $z=1$ | BEC? |
+|---|---|---|---|
+| 1D | $\propto E^{-1/2}$ | Diverges as $E^{-3/2}$ | ✗ |
+| 2D | constant | Diverges as $E^{-1}$ | ✗ |
+| 3D | $\propto E^{1/2}$ | Converges | ✓ |
+
+In 3D, $g(E) \propto \sqrt{E}$ suppresses the integrand enough near $E = 0$ that $N_\text{ex}^\text{max}$ is finite — which is precisely why BEC happens in 3D and not in lower dimensions.
+
+This is a general result: for a $d$-dimensional ideal Bose gas, BEC requires $d > 2$. The borderline case $d = 2$ is marginal (logarithmically divergent), which is why 2D systems show a different but related phase transition — the **Berezinskii-Kosterlitz-Thouless (BKT) transition** — but that's a story for another post.
