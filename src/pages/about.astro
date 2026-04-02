@@ -70,11 +70,13 @@ const teaching = [
 				position: "Head Teaching Assistant",
 				course: "Cosmology (Masters Core)",
 				term: "Winter 2024",
+				detail: "Managed TA coordination, conducted intensive weekly tutorials, and designed course materials.",
 			},
 			{
 				position: "Head Teaching Assistant",
 				course: "Advanced Quantum Field Theory (Masters Specialization)",
 				term: "Winter 2024",
+				detail: "Delivered guest plenary lectures, designed specialized problem sets, and coordinated the TA team.",
 			},
 			{
 				position: "Graduate Teaching Assistant",
@@ -135,11 +137,13 @@ const teaching = [
 				position: "Head Teaching Assistant",
 				course: "Mechanics II & Electrodynamics II (Theoretical Physics III)",
 				term: "Winter 2019",
+				detail: "Redesigned course materials and conducted weekly plenary tutorials for the theoretical physics track.",
 			},
 			{
 				position: "Head Teaching Assistant",
 				course: "Electrodynamics I (Theoretical Physics II)",
 				term: "Summer 2018",
+				detail: "Redesigned course materials and conducted weekly plenary tutorials for the theoretical physics track.",
 			},
 			{
 				position: "Teaching Assistant",
@@ -240,11 +244,20 @@ const teaching = [
                 {teaching.map((t) => (
                     <div>
                         <h3 class="font-semibold text-[var(--primary)] mb-3">{t.institution}</h3>
-                        <div class="flex flex-col gap-2">
+                        <div class="flex flex-col gap-4">
                             {t.roles.map((r) => (
-                                <div class="pl-4 border-l-2 border-[var(--primary)] flex flex-wrap items-baseline gap-x-2">
-                                    <span class="text-sm font-medium text-black/80 dark:text-white/80">{r.course}</span>
-                                    <span class="text-xs text-black/40 dark:text-white/40">· {r.position} · {r.term}</span>
+                                <div class="pl-4 border-l-2 border-[var(--primary)]">
+                                    <div class="flex flex-wrap items-baseline gap-x-2">
+                                        <span class="text-sm font-bold text-black/80 dark:text-white/80">{r.course}</span>
+                                        <span class="text-xs text-black/40 dark:text-white/40">· {r.term}</span>
+                                        {r.position === "Head Teaching Assistant" && (
+                                            <span class="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[var(--primary)] text-white ml-2">
+                                                Head Position
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div class="text-xs text-[var(--primary)] font-medium mt-0.5 mb-1">{r.position}</div>
+                                    {r.detail && <p class="text-xs text-black/60 dark:text-white/60 leading-relaxed">{r.detail}</p>}
                                 </div>
                             ))}
                         </div>

@@ -29,10 +29,17 @@ This file serves as a persistent context for Gemini CLI when working on this pro
 - **Source**: data in `src/data/publications.json` should ideally match InspireHEP or official journal metadata.
 - **Example**: "Secluded Dark Composites and Remnant Binding Fields" is updated to its JCAP version: `J. Cosmol. Astropart. Phys. 12 (2025) 034`.
 
-### 3. Teaching Collection
+### 4. Teaching Collection
 - **Schema**: Defined in `src/content/config.ts`.
 - **Handling**: Supports both `string` and `date` types for the `date` field to accommodate different frontmatter formats.
 - **Components**: `src/pages/teaching/[slug].astro` uses `entry.id` (Astro 5 standard) instead of `entry.slug`.
+
+### 5. Senior Teaching Highlights (About Page)
+- **Logic**: Roles with the position "Head Teaching Assistant" in `src/pages/about.astro` receive a specialized UI.
+- **Visuals**: 
+    - A "HEAD POSITION" badge in the primary theme color.
+    - An expanded `detail` section to highlight leadership responsibilities (guest lectures, coordination, etc.).
+- **Purpose**: To distinguish senior leadership roles from standard TA positions.
 
 ## Maintenance Notes
 - Always run `pnpm check` and `pnpm lint` after modifications to ensure type safety and code quality.
