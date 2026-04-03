@@ -1,0 +1,70 @@
+---
+const bannerText = "🎉 Website redesigned! Migrating content from the old site — more posts coming soon!";
+---
+
+<div id="redesign-banner" class="fixed top-0 left-0 right-0 z-[9999] bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 text-center text-sm shadow-lg transition-all duration-300">
+	<div class="container mx-auto flex items-center justify-center gap-2">
+		<span class="font-medium">{bannerText}</span>
+		<button
+			onclick="dismissBanner()"
+			class="ml-4 text-white/80 hover:text-white transition-colors p-1 hover:bg-white/20 rounded"
+			aria-label="Dismiss banner"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+<script define:vars={{ bannerId: 'redesign-banner' }}>
+	function dismissBanner() {
+		const banner = document.getElementById(bannerId);
+		if (banner) {
+			const bannerHeight = banner.offsetHeight;
+			banner.style.opacity = '0';
+			banner.style.transform = 'translateY(-100%)';
+			setTimeout(() => {
+				banner.style.display = 'none';
+				// Remove padding when banner is dismissed
+				document.body.style.paddingTop = '0';
+				// Save dismissal to localStorage
+				localStorage.setItem(bannerId + '-dismissed', 'true');
+			}, 300);
+		}
+	}
+
+	// Add padding to body to account for banner
+	function addBannerPadding() {
+		const banner = document.getElementById(bannerId);
+		if (banner && banner.style.display !== 'none') {
+			const bannerHeight = banner.offsetHeight;
+			document.body.style.paddingTop = `${bannerHeight}px`;
+		}
+	}
+
+	// Check if banner was previously dismissed
+	if (typeof localStorage !== 'undefined') {
+		const wasDismissed = localStorage.getItem(bannerId + '-dismissed');
+		if (wasDismissed !== 'true') {
+			// Add padding after banner renders
+			setTimeout(addBannerPadding, 0);
+		}
+	}
+
+	// Also add padding on window resize in case banner dimensions change
+	window.addEventListener('resize', addBannerPadding);
+</script>
+
+<style>
+	@media (prefers-color-scheme: dark) {
+		#redesign-banner {
+			background: linear-gradient(to right, rgb(37 99 235), rgb(147 51 234));
+		}
+	}
+	@media (prefers-color-scheme: light) {
+		#redesign-banner {
+			background: linear-gradient(to right, rgb(59 130 246), rgb(168 85 247));
+		}
+	}
+</style>

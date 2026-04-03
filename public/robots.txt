@@ -1,0 +1,6 @@
+# www.rohankulkarni.me
+
+User-agent: *
+Allow: /
+
+Sitemap: https://rohankulkarni.me/sitemap-index.xml

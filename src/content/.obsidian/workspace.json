@@ -1,262 +1,262 @@
 {
-  "main": {
-    "id": "5889ecf1e334c98a",
-    "type": "split",
-    "children": [
-      {
-        "id": "7e00959a41bebbf1",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "02bc301d661563a4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/blogs/ipsp/ipsp1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ipsp1"
-            }
-          },
-          {
-            "id": "23a8e89970dc68d6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/bibliosphere/grad/qft.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "qft"
-            }
-          },
-          {
-            "id": "0ab827810f935397",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.10.6"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.10.6"
-            }
-          },
-          {
-            "id": "198acb77021c777c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/bibliosphere/Bibliosphere draft.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Bibliosphere draft"
-            }
-          }
-        ],
-        "currentTab": 3
-      }
-    ],
-    "direction": "vertical"
-  },
-  "left": {
-    "id": "0014e64bcce8d480",
-    "type": "split",
-    "children": [
-      {
-        "id": "dbdea6d9ee10b9bc",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "5edd7d717b20255b",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
-          },
-          {
-            "id": "b47bb61af7cc00bb",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
-            }
-          },
-          {
-            "id": "007f0c497d1728ae",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
-            }
-          }
-        ]
-      }
-    ],
-    "direction": "horizontal",
-    "width": 300
-  },
-  "right": {
-    "id": "f7dafc911f1105fd",
-    "type": "split",
-    "children": [
-      {
-        "id": "7376267b5b1a4a00",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "46d4f54514213f59",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "posts/teaching/qftii_heidelberg_sose2024/qftii_heidelberg_sose24.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for qftii_heidelberg_sose24"
-            }
-          },
-          {
-            "id": "ee113bf1b4012d0f",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "posts/teaching/qftii_heidelberg_sose2024/qftii_heidelberg_sose24.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from qftii_heidelberg_sose24"
-            }
-          },
-          {
-            "id": "20c32ca2fa8b0297",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
-          },
-          {
-            "id": "4cf099cd19913ef6",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "posts/bibliosphere/Bibliosphere draft.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Bibliosphere draft"
-            }
-          }
-        ],
-        "currentTab": 3
-      }
-    ],
-    "direction": "horizontal",
-    "width": 300
-  },
-  "left-ribbon": {
-    "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
-    }
-  },
-  "active": "198acb77021c777c",
-  "lastOpenFiles": [
-    "posts/notes/time-reversal-spin-half/index.md",
-    "posts/notes/time-reversal-spin-half",
-    "posts/notes/clebsch-gordan-decay/index.md",
-    "posts/notes/clebsch-gordan-decay",
-    "posts/notes/discrete-symmetry-groups/index.md",
-    "posts/notes/discrete-symmetry-groups",
-    "posts/notes/wkb-tunneling/index.md",
-    "posts/notes/wkb-tunneling",
-    "posts/notes/spin-probabilities/index.md",
-    "posts/notes/spin-probabilities",
-    "posts/notes/density-matrix/index.md",
-    "posts/notes/density-matrix",
-    "posts/notes/neutrino-oscillations/index.md",
-    "posts/notes/neutrino-oscillations",
-    "posts/notes/spin-orbit-interaction/index.md",
-    "posts/notes/spin-orbit-interaction",
-    "posts/notes/commutator-identities/index.md",
-    "posts/notes/commutator-identities",
-    "posts/notes",
-    "posts/expressive-code.md",
-    "posts/draft.md",
-    "posts/blogs/phd_application_guide.md",
-    "posts/teaching/gr_heidelberg_sose21.md",
-    "posts/teaching/theo_physics_iii_leipzig_ws1920.md",
-    "posts/bibliosphere/grad/cosmology.md",
-    "posts/bibliosphere/grad/qft.md",
-    "posts/bibliosphere/ug/qm.md",
-    "posts/bibliosphere/ug/ed.md",
-    "posts/bibliosphere/ug/cm.md",
-    "posts/blogs/ipsp/ipsp1.md",
-    "posts/blogs/heidelberg_interview.md",
-    "posts/blogs/ipsp/leipzig_skyline.jpg",
-    "posts/blogs/ipsp/ipsp3.md",
-    "posts/blogs/ipsp/ipsp2.md",
-    "posts/demystify_series/kinetic_energy1.md",
-    "posts/bibliosphere/Bibliosphere draft.md",
-    "posts/bibliosphere/ug/physicists.jpg",
-    "posts/bibliosphere/ug/bibliosphere draft (TO COPY ONLY).md",
-    "posts/bibliosphere/grad/galileo.jpeg",
-    "posts/bibliosphere/grad/galileo.webp",
-    "posts/guide/cover.jpeg",
-    "posts/blogs/heidelberg_skyline.jpg",
-    "posts/blogs/leipzig_skyline.jpg",
-    "posts/bibliosphere/grad/feynman.jpg",
-    "posts/blogs/ipsp/aula.jpg",
-    "posts/blogs/ipsp/IMG_20160224_215039.jpg"
-  ]
+	"main": {
+		"id": "5889ecf1e334c98a",
+		"type": "split",
+		"children": [
+			{
+				"id": "7e00959a41bebbf1",
+				"type": "tabs",
+				"children": [
+					{
+						"id": "02bc301d661563a4",
+						"type": "leaf",
+						"state": {
+							"type": "markdown",
+							"state": {
+								"file": "posts/blogs/ipsp/ipsp1.md",
+								"mode": "source",
+								"source": false
+							},
+							"icon": "lucide-file",
+							"title": "ipsp1"
+						}
+					},
+					{
+						"id": "23a8e89970dc68d6",
+						"type": "leaf",
+						"state": {
+							"type": "markdown",
+							"state": {
+								"file": "posts/bibliosphere/grad/qft.md",
+								"mode": "source",
+								"source": false
+							},
+							"icon": "lucide-file",
+							"title": "qft"
+						}
+					},
+					{
+						"id": "0ab827810f935397",
+						"type": "leaf",
+						"state": {
+							"type": "release-notes",
+							"state": {
+								"currentVersion": "1.10.6"
+							},
+							"icon": "lucide-book-up",
+							"title": "Release Notes 1.10.6"
+						}
+					},
+					{
+						"id": "198acb77021c777c",
+						"type": "leaf",
+						"state": {
+							"type": "markdown",
+							"state": {
+								"file": "posts/bibliosphere/Bibliosphere draft.md",
+								"mode": "source",
+								"source": false
+							},
+							"icon": "lucide-file",
+							"title": "Bibliosphere draft"
+						}
+					}
+				],
+				"currentTab": 3
+			}
+		],
+		"direction": "vertical"
+	},
+	"left": {
+		"id": "0014e64bcce8d480",
+		"type": "split",
+		"children": [
+			{
+				"id": "dbdea6d9ee10b9bc",
+				"type": "tabs",
+				"children": [
+					{
+						"id": "5edd7d717b20255b",
+						"type": "leaf",
+						"state": {
+							"type": "file-explorer",
+							"state": {
+								"sortOrder": "alphabetical",
+								"autoReveal": false
+							},
+							"icon": "lucide-folder-closed",
+							"title": "Files"
+						}
+					},
+					{
+						"id": "b47bb61af7cc00bb",
+						"type": "leaf",
+						"state": {
+							"type": "search",
+							"state": {
+								"query": "",
+								"matchingCase": false,
+								"explainSearch": false,
+								"collapseAll": false,
+								"extraContext": false,
+								"sortOrder": "alphabetical"
+							},
+							"icon": "lucide-search",
+							"title": "Search"
+						}
+					},
+					{
+						"id": "007f0c497d1728ae",
+						"type": "leaf",
+						"state": {
+							"type": "bookmarks",
+							"state": {},
+							"icon": "lucide-bookmark",
+							"title": "Bookmarks"
+						}
+					}
+				]
+			}
+		],
+		"direction": "horizontal",
+		"width": 300
+	},
+	"right": {
+		"id": "f7dafc911f1105fd",
+		"type": "split",
+		"children": [
+			{
+				"id": "7376267b5b1a4a00",
+				"type": "tabs",
+				"children": [
+					{
+						"id": "46d4f54514213f59",
+						"type": "leaf",
+						"state": {
+							"type": "backlink",
+							"state": {
+								"file": "posts/teaching/qftii_heidelberg_sose2024/qftii_heidelberg_sose24.md",
+								"collapseAll": false,
+								"extraContext": false,
+								"sortOrder": "alphabetical",
+								"showSearch": false,
+								"searchQuery": "",
+								"backlinkCollapsed": false,
+								"unlinkedCollapsed": true
+							},
+							"icon": "links-coming-in",
+							"title": "Backlinks for qftii_heidelberg_sose24"
+						}
+					},
+					{
+						"id": "ee113bf1b4012d0f",
+						"type": "leaf",
+						"state": {
+							"type": "outgoing-link",
+							"state": {
+								"file": "posts/teaching/qftii_heidelberg_sose2024/qftii_heidelberg_sose24.md",
+								"linksCollapsed": false,
+								"unlinkedCollapsed": true
+							},
+							"icon": "links-going-out",
+							"title": "Outgoing links from qftii_heidelberg_sose24"
+						}
+					},
+					{
+						"id": "20c32ca2fa8b0297",
+						"type": "leaf",
+						"state": {
+							"type": "tag",
+							"state": {
+								"sortOrder": "frequency",
+								"useHierarchy": true,
+								"showSearch": false,
+								"searchQuery": ""
+							},
+							"icon": "lucide-tags",
+							"title": "Tags"
+						}
+					},
+					{
+						"id": "4cf099cd19913ef6",
+						"type": "leaf",
+						"state": {
+							"type": "outline",
+							"state": {
+								"file": "posts/bibliosphere/Bibliosphere draft.md",
+								"followCursor": false,
+								"showSearch": false,
+								"searchQuery": ""
+							},
+							"icon": "lucide-list",
+							"title": "Outline of Bibliosphere draft"
+						}
+					}
+				],
+				"currentTab": 3
+			}
+		],
+		"direction": "horizontal",
+		"width": 300
+	},
+	"left-ribbon": {
+		"hiddenItems": {
+			"switcher:Open quick switcher": false,
+			"graph:Open graph view": false,
+			"canvas:Create new canvas": false,
+			"daily-notes:Open today's daily note": false,
+			"templates:Insert template": false,
+			"command-palette:Open command palette": false,
+			"bases:Create new base": false
+		}
+	},
+	"active": "198acb77021c777c",
+	"lastOpenFiles": [
+		"posts/notes/bec-1d-2d/index.md",
+		"posts/notes/bec-1d-2d",
+		"posts/notes/correlation-function-classical-limit/index.md",
+		"posts/notes/correlation-function-classical-limit",
+		"posts/notes/spin-eigenstates-general/index.md",
+		"posts/notes/spin-eigenstates-general",
+		"posts/notes/time-reversal-spin-half/index.md",
+		"posts/notes/time-reversal-spin-half",
+		"posts/notes/clebsch-gordan-decay/index.md",
+		"posts/notes/clebsch-gordan-decay",
+		"posts/notes/discrete-symmetry-groups/index.md",
+		"posts/notes/discrete-symmetry-groups",
+		"posts/notes/wkb-tunneling/index.md",
+		"posts/notes/wkb-tunneling",
+		"posts/notes/spin-probabilities/index.md",
+		"posts/notes/spin-probabilities",
+		"posts/notes/density-matrix/index.md",
+		"posts/notes/density-matrix",
+		"posts/notes/neutrino-oscillations/index.md",
+		"posts/notes/neutrino-oscillations",
+		"posts/notes/spin-orbit-interaction/index.md",
+		"posts/notes/commutator-identities/index.md",
+		"posts/expressive-code.md",
+		"posts/draft.md",
+		"posts/blogs/phd_application_guide.md",
+		"posts/teaching/gr_heidelberg_sose21.md",
+		"posts/teaching/theo_physics_iii_leipzig_ws1920.md",
+		"posts/bibliosphere/grad/cosmology.md",
+		"posts/bibliosphere/grad/qft.md",
+		"posts/bibliosphere/ug/qm.md",
+		"posts/bibliosphere/ug/ed.md",
+		"posts/bibliosphere/ug/cm.md",
+		"posts/blogs/ipsp/ipsp1.md",
+		"posts/blogs/heidelberg_interview.md",
+		"posts/blogs/ipsp/leipzig_skyline.jpg",
+		"posts/blogs/ipsp/ipsp3.md",
+		"posts/blogs/ipsp/ipsp2.md",
+		"posts/bibliosphere/ug/physicists.jpg",
+		"posts/bibliosphere/grad/galileo.jpeg",
+		"posts/bibliosphere/grad/galileo.webp",
+		"posts/guide/cover.jpeg",
+		"posts/blogs/heidelberg_skyline.jpg",
+		"posts/blogs/leipzig_skyline.jpg",
+		"posts/bibliosphere/grad/feynman.jpg",
+		"posts/blogs/ipsp/aula.jpg",
+		"posts/blogs/ipsp/IMG_20160224_215039.jpg"
+	]
 }

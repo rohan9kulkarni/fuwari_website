@@ -55,8 +55,13 @@
 		"category": "Bose-Einstein Condensation"
 	},
 	{
-		"title": "SM Bhabha Scattering",
-		"filename": "sm_bhaba_scattering.pdf",
-		"category": "Notes"
+	  "title": "SM Bhabha Scattering",
+	  "filename": "sm_bhaba_scattering.pdf",
+	  "category": "Notes"
+	},
+	{
+	  "title": "Directed Polymer Problem Set",
+	  "filename": "prob2_directed_polymer_23dec2020.pdf",
+	  "category": "Statistical Mechanics"
 	}
-]
+	]
