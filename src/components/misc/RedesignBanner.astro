@@ -2,11 +2,11 @@
 const bannerText = "🎉 Website redesigned! Migrating content from the old site — more posts coming soon!";
 ---
 
-<div id="redesign-banner" class="fixed top-0 left-0 right-0 z-[9999] bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 text-center text-sm shadow-lg transition-all duration-300">
+<div id="redesign-banner" class="fixed top-0 left-0 right-0 z-[9999] bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 text-center text-sm shadow-lg transition-all duration-300 hidden">
 	<div class="container mx-auto flex items-center justify-center gap-2">
 		<span class="font-medium">{bannerText}</span>
 		<button
-			onclick="dismissBanner()"
+			id="dismiss-banner-btn"
 			class="ml-4 text-white/80 hover:text-white transition-colors p-1 hover:bg-white/20 rounded"
 			aria-label="Dismiss banner"
 		>
@@ -18,41 +18,45 @@ const bannerText = "🎉 Website redesigned! Migrating content from the old site
 </div>
 
 <script define:vars={{ bannerId: 'redesign-banner' }}>
+	const banner = document.getElementById(bannerId);
+	const dismissBtn = document.getElementById('dismiss-banner-btn');
+
 	function dismissBanner() {
-		const banner = document.getElementById(bannerId);
 		if (banner) {
-			const bannerHeight = banner.offsetHeight;
 			banner.style.opacity = '0';
 			banner.style.transform = 'translateY(-100%)';
 			setTimeout(() => {
 				banner.style.display = 'none';
-				// Remove padding when banner is dismissed
 				document.body.style.paddingTop = '0';
-				// Save dismissal to localStorage
 				localStorage.setItem(bannerId + '-dismissed', 'true');
 			}, 300);
 		}
 	}
 
-	// Add padding to body to account for banner
 	function addBannerPadding() {
-		const banner = document.getElementById(bannerId);
 		if (banner && banner.style.display !== 'none') {
 			const bannerHeight = banner.offsetHeight;
 			document.body.style.paddingTop = `${bannerHeight}px`;
 		}
 	}
 
-	// Check if banner was previously dismissed
+	// Initialize banner state
 	if (typeof localStorage !== 'undefined') {
 		const wasDismissed = localStorage.getItem(bannerId + '-dismissed');
-		if (wasDismissed !== 'true') {
-			// Add padding after banner renders
-			setTimeout(addBannerPadding, 0);
+		if (wasDismissed !== 'true' && banner) {
+			banner.classList.remove('hidden');
+			banner.classList.add('flex');
+			// Use requestAnimationFrame to ensure the banner is rendered before calculating height
+			requestAnimationFrame(() => {
+				addBannerPadding();
+			});
 		}
 	}
 
-	// Also add padding on window resize in case banner dimensions change
+	if (dismissBtn) {
+		dismissBtn.addEventListener('click', dismissBanner);
+	}
+
 	window.addEventListener('resize', addBannerPadding);
 </script>
 
