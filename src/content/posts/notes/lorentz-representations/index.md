@@ -3,6 +3,7 @@ title: "Lie Groups and Lie Algebras, Part III: Spinors, Fields, and the Represen
 published: 2026-04-05
 description: "Decomposing the Lorentz algebra into su(2) ⊕ su(2), classifying representations by (j+, j-), and understanding Weyl, Dirac, and Majorana spinors in relativistic field theory."
 tags:
+  - mathematical-physics
   - quantum-field-theory
   - physics
 category: Notes
