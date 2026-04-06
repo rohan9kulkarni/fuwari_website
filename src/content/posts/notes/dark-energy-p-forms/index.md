@@ -1,6 +1,6 @@
 ---
-title: "Dark Energy Beyond Scalars: Why p-Forms?"
-published: 2025-12-12
+title: "Dark Energy Beyond Scalars, Part I: Why p-Forms?"
+published: 2026-04-06T10:00:00Z
 description: An introduction to using higher-rank tensor fields like vectors and 2-forms as dark energy candidates, going beyond the scalar field quintessence.
 tags:
   - cosmology

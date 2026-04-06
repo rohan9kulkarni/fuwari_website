@@ -1,7 +1,7 @@
 ---
 title: "Dark Energy Beyond Scalars, Part III: The Cosmological Principle Meets Higher-Rank Fields"
-published: 2026-04-08
-description: "Applying the cosmological principle to massive vectors and massless 2-forms to see if they can drive the expansion of the Universe."
+published: 2026-04-06T12:00:00Z
+description: Applying the cosmological principle to massive vectors and massless 2-forms to see if they can drive the expansion of the Universe.
 tags:
   - cosmology
   - physics
@@ -9,7 +9,7 @@ category: Notes
 draft: false
 ---
 
-*This is the third post in a series on vector and 2-form dark energy. In the [previous post](/posts/notes/gauge-symmetry-mass-dof/), we established the gauge structure, degree-of-freedom count, equations of motion, and stress-energy tensors for both theories. Now we place these fields on a cosmological background and ask: can they drive the expansion of the Universe?*
+*This is the third post in a series on vector and 2-form dark energy. In the [previous post](/posts/notes/dark-energy-p-forms-part2/), we established the gauge structure, degree-of-freedom count, equations of motion, and stress-energy tensors for both theories. Now we place these fields on a cosmological background and ask: can they drive the expansion of the Universe?*
 
 ---
 
