@@ -3,9 +3,7 @@ title: "Lie Groups and Lie Algebras, Part IV: The Poincaré Group and the Classi
 published: 2026-04-06
 description: "Exploring the Poincaré group, its Casimir operators, and Wigner's classification of elementary particles by mass and spin/helicity."
 tags:
-  - mathematical-physics
   - quantum-field-theory
-  - special-relativity
   - physics
 category: Notes
 draft: false
