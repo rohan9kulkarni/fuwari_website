@@ -1,6 +1,6 @@
 ---
 title: "Dark Energy Beyond Scalars, Part II: Gauge Symmetry, Mass, and Degrees of Freedom"
-published: 2026-04-06T11:00:00Z
+published: 2025-12-20
 description: A deep dive into gauge symmetry, equations of motion, constraints, and degrees of freedom for massive vectors and massless 2-forms.
 tags:
   - cosmology

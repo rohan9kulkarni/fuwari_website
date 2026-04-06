@@ -1,6 +1,6 @@
 ---
 title: "Dark Energy Beyond Scalars, Part III: The Cosmological Principle Meets Higher-Rank Fields"
-published: 2026-04-06T12:00:00Z
+published: 2025-12-21
 description: Applying the cosmological principle to massive vectors and massless 2-forms to see if they can drive the expansion of the Universe.
 tags:
   - cosmology
