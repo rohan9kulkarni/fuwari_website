@@ -2,7 +2,8 @@
 title: "Mandelstam Variables in the CM Frame"
 published: 2024-04-03
 description: "Deriving the Mandelstam variables s, t, u for e+e- → μ+μ- scattering in the center-of-mass frame — from kinematics to Lorentz-invariant cross sections."
-tags: [Quantum Field Theory]
+tags:
+  - quantum-field-theory
 category: Notes
 draft: false
 ---

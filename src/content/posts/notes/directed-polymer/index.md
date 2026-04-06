@@ -2,7 +2,9 @@
 title: "Statistical Mechanics: The Directed Polymer Problem"
 published: 2020-12-23
 description: "A detailed look at the directed polymer on a square lattice, counting microstates and calculating typical deflection using the partition function."
-tags: [Statistical Mechanics, Physics]
+tags:
+  - statistical-mechanics
+  - physics
 category: Notes
 draft: false
 ---

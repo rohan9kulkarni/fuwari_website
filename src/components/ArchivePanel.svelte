@@ -37,8 +37,15 @@ function formatDate(date: Date) {
 	return `${month}-${day}`;
 }
 
+function prettyTag(t: string): string {
+	return t
+		.split("-")
+		.map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+		.join(" ");
+}
+
 function formatTag(tagList: string[]) {
-	return tagList.map((t) => `#${t}`).join(" ");
+	return tagList.map((t) => `#${prettyTag(t)}`).join(" ");
 }
 
 onMount(async () => {

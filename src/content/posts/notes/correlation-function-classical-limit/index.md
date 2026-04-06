@@ -3,7 +3,8 @@ title: "Correlation Function and the Classical Limit"
 published: 2023-07-20
 description: "Exploring how the quantum mechanical correlation function C(t) relates to the classical limit of a Gaussian state with width σ_ω."
 image: ""
-tags: [Quantum Mechanics]
+tags:
+  - quantum-mechanics
 category: Notes
 draft: false
 ---

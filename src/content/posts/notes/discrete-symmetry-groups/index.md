@@ -2,7 +2,8 @@
 title: "Discrete Symmetry Groups: Rotations, Mirrors, and Vanishing Matrix Elements"
 published: 2022-10-17
 description: "Working through a discrete rotation group, its subgroups, eigenvalues of symmetry operators, non-commutativity of rotations and reflections, and using symmetry to identify vanishing matrix elements."
-tags: [Mathematical Physics]
+tags:
+  - mathematical-physics
 category: Notes
 draft: false
 ---

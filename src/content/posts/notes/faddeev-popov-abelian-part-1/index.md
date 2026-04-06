@@ -2,7 +2,8 @@
 title: "Faddeev–Popov Quantization (Abelian), Part 1: The Overcounting Problem"
 published: 2026-04-03
 description: "Why you can't just write down the path integral for a gauge theory and call it a day — the operator you can't invert, the orbits you can't avoid, and the geometric picture that makes gauge fixing click."
-tags: [Quantum Field Theory]
+tags:
+  - quantum-field-theory
 category: Notes
 draft: false
 ---
@@ -163,8 +164,6 @@ In Part 2, we'll derive the Faddeev–Popov identity that correctly accounts for
 
 ---
 
-## Source Material
-
-This post was inspired by course material from **Heidelberg University QFT Tutorial 6**. You can download the original notes:
+This post was inspired by my own course material that I developed for **Heidelberg University Advanced QFT Plenary Tutorials. You can download the original notes:
 
 📄 [Tutorial 6: Faddeev-Popov Quantization (PDF)](/resources/faddeev-popov-tutorial6.pdf)

@@ -2,7 +2,8 @@
 title: "Spin Measurement Probabilities for a General Qubit State"
 published: 2023-07-20
 description: "Given a general spin-1/2 state, we calculate the probabilities of measuring positive spin along y and z, and verify with known eigenstates."
-tags: [Quantum Mechanics]
+tags:
+  - quantum-mechanics
 category: Notes
 draft: false
 ---

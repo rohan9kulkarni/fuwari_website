@@ -2,7 +2,8 @@
 title: "Bose-Einstein Condensation (1): Can it occur in 1D and 2D?"
 published: 2024-05-24
 description: "Checking if Bose-Einstein Condensation can occur in 1D and 2D for free particles using periodic boundary conditions — and why the density of states is the key."
-tags: [Statistical Mechanics]
+tags:
+  - statistical-mechanics
 category: Notes
 draft: false
 ---

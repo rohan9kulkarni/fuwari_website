@@ -3,7 +3,8 @@ title: "Spin Eigenstates in a General Direction"
 published: 2022-09-26
 description: "Deriving the explicit matrix form and normalization of the spin eigenstates |n; +⟩ for a general unit vector n̂ defined by spherical angles θ and φ."
 image: ""
-tags: [Quantum Mechanics]
+tags:
+  - quantum-mechanics
 category: Notes
 draft: false
 ---

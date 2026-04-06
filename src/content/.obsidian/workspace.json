@@ -27,42 +27,16 @@
 						"state": {
 							"type": "markdown",
 							"state": {
-								"file": "posts/bibliosphere/grad/qft.md",
+								"file": "posts/notes/lie-groups-lie-algebras/index.md",
 								"mode": "source",
 								"source": false
 							},
 							"icon": "lucide-file",
-							"title": "qft"
-						}
-					},
-					{
-						"id": "0ab827810f935397",
-						"type": "leaf",
-						"state": {
-							"type": "release-notes",
-							"state": {
-								"currentVersion": "1.10.6"
-							},
-							"icon": "lucide-book-up",
-							"title": "Release Notes 1.10.6"
-						}
-					},
-					{
-						"id": "198acb77021c777c",
-						"type": "leaf",
-						"state": {
-							"type": "markdown",
-							"state": {
-								"file": "posts/bibliosphere/Bibliosphere draft.md",
-								"mode": "source",
-								"source": false
-							},
-							"icon": "lucide-file",
-							"title": "Bibliosphere draft"
+							"title": "index"
 						}
 					}
 				],
-				"currentTab": 3
+				"currentTab": 1
 			}
 		],
 		"direction": "vertical"
@@ -183,13 +157,13 @@
 						"state": {
 							"type": "outline",
 							"state": {
-								"file": "posts/bibliosphere/Bibliosphere draft.md",
+								"file": "posts/notes/lie-groups-lie-algebras/index.md",
 								"followCursor": false,
 								"showSearch": false,
 								"searchQuery": ""
 							},
 							"icon": "lucide-list",
-							"title": "Outline of Bibliosphere draft"
+							"title": "Outline of index"
 						}
 					}
 				],
@@ -210,9 +184,31 @@
 			"bases:Create new base": false
 		}
 	},
-	"active": "198acb77021c777c",
+	"active": "23a8e89970dc68d6",
 	"lastOpenFiles": [
+		"posts/notes/faddeev-popov-abelian-part-2/index.md",
+		"posts/notes/lie-groups-lie-algebras/index.md",
+		"posts/notes/lorentz-group/index.md",
+		"posts/notes/lorentz-group",
+		"posts/notes/discrete-symmetry-groups/index.md",
+		"posts/notes/commutator-identities/index.md",
+		"posts/notes/clebsch-gordan-decay/index.md",
 		"posts/notes/bec-1d-2d/index.md",
+		"teaching/course-physics101.md",
+		"teaching/course-calc201.md",
+		"src/content/posts/teaching/qftii_heidelberg_sose2024/tutorial2_supp.pdf.md",
+		"spec/about.md",
+		"posts/notes/mandelstam-variables/index.md",
+		"posts/notes/neutrino-oscillations/index.md",
+		"posts/notes/faddeev-popov-abelian-part-1/index.md",
+		"Untitled 1.base",
+		"Untitled 1.canvas",
+		"Untitled.base",
+		"posts/bibliosphere/grad/qft.md",
+		"Untitled.canvas",
+		"posts/bibliosphere/Bibliosphere draft.md",
+		"2026-04-06.md",
+		"posts/notes/lie-groups-lie-algebras",
 		"posts/notes/bec-1d-2d",
 		"posts/notes/correlation-function-classical-limit/index.md",
 		"posts/notes/correlation-function-classical-limit",
@@ -220,35 +216,15 @@
 		"posts/notes/spin-eigenstates-general",
 		"posts/notes/time-reversal-spin-half/index.md",
 		"posts/notes/time-reversal-spin-half",
-		"posts/notes/clebsch-gordan-decay/index.md",
 		"posts/notes/clebsch-gordan-decay",
-		"posts/notes/discrete-symmetry-groups/index.md",
 		"posts/notes/discrete-symmetry-groups",
 		"posts/notes/wkb-tunneling/index.md",
-		"posts/notes/wkb-tunneling",
 		"posts/notes/spin-probabilities/index.md",
-		"posts/notes/spin-probabilities",
 		"posts/notes/density-matrix/index.md",
-		"posts/notes/density-matrix",
-		"posts/notes/neutrino-oscillations/index.md",
-		"posts/notes/neutrino-oscillations",
 		"posts/notes/spin-orbit-interaction/index.md",
-		"posts/notes/commutator-identities/index.md",
 		"posts/expressive-code.md",
 		"posts/draft.md",
-		"posts/blogs/phd_application_guide.md",
-		"posts/teaching/gr_heidelberg_sose21.md",
-		"posts/teaching/theo_physics_iii_leipzig_ws1920.md",
-		"posts/bibliosphere/grad/cosmology.md",
-		"posts/bibliosphere/grad/qft.md",
-		"posts/bibliosphere/ug/qm.md",
-		"posts/bibliosphere/ug/ed.md",
-		"posts/bibliosphere/ug/cm.md",
-		"posts/blogs/ipsp/ipsp1.md",
-		"posts/blogs/heidelberg_interview.md",
 		"posts/blogs/ipsp/leipzig_skyline.jpg",
-		"posts/blogs/ipsp/ipsp3.md",
-		"posts/blogs/ipsp/ipsp2.md",
 		"posts/bibliosphere/ug/physicists.jpg",
 		"posts/bibliosphere/grad/galileo.jpeg",
 		"posts/bibliosphere/grad/galileo.webp",

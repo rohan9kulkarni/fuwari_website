@@ -2,7 +2,8 @@
 title: "Virial Expansion for Hard Spheres"
 published: 2024-04-03
 description: "Deriving the virial expansion for a classical gas of hard spheres — from the Mayer f-function to excluded volume and higher-order corrections."
-tags: [Statistical Mechanics]
+tags:
+  - statistical-mechanics
 category: Notes
 draft: false
 ---

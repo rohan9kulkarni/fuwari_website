@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getPostUrlBySlug, url } from "../../utils/url-utils";
+import { formatTag, getPostUrlBySlug, url } from "../../utils/url-utils";
 
 const teachingPosts = (
 	await getCollection(
@@ -36,7 +36,7 @@ const teachingPosts = (
                         </div>
                         <div class="flex gap-2 mt-1 flex-wrap">
                             {post.data.tags?.map((tag: string) => (
-                                <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--btn-regular-bg)] text-[var(--btn-regular-text)]">{tag}</span>
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--btn-regular-bg)] text-[var(--btn-regular-text)]">{formatTag(tag)}</span>
                             ))}
                         </div>
                     </a>

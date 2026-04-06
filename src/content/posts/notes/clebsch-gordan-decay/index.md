@@ -2,7 +2,8 @@
 title: "Angular Momentum Conservation in Particle Decay and Clebsch-Gordan Coefficients"
 published: 2022-10-17
 description: "Using angular momentum conservation to constrain the final state of a particle decay, enumerating possible states, determining parity, and extracting spin measurement probabilities from Clebsch-Gordan coefficients."
-tags: [Particle Physics]
+tags:
+  - particle-physics
 category: Notes
 draft: false
 ---
