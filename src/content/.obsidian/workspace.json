@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/notes/commutator-identities/index.md",
+                "file": "posts/notes/dark-energy-p-forms-part4/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -157,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/notes/commutator-identities/index.md",
+                "file": "posts/notes/dark-energy-p-forms-part4/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -186,6 +186,15 @@
   },
   "active": "23a8e89970dc68d6",
   "lastOpenFiles": [
+    "posts/notes/dark-energy-p-forms-part3/index.md",
+    "posts/notes/dark-energy-p-forms-part4/index.md",
+    "posts/notes/dark-energy-p-forms-part4",
+    "posts/notes/dark-energy-p-forms-part2/index.md",
+    "posts/notes/dark-energy-p-forms/index.md",
+    "posts/notes/commutator-identities/index.md",
+    "posts/notes/dark-energy-p-forms-part3",
+    "posts/notes/dark-energy-p-forms-part2",
+    "posts/notes/dark-energy-p-forms",
     "posts/notes/faddeev-popov-abelian-part-1/index.md",
     "posts/notes/lie-groups-lie-algebras/index.md",
     "posts/notes/poincare-group/index.md",
@@ -196,7 +205,6 @@
     "posts/notes/lorentz-group/index.md",
     "posts/notes/lorentz-group",
     "posts/notes/discrete-symmetry-groups/index.md",
-    "posts/notes/commutator-identities/index.md",
     "posts/notes/clebsch-gordan-decay/index.md",
     "posts/notes/bec-1d-2d/index.md",
     "teaching/course-physics101.md",
@@ -213,17 +221,9 @@
     "posts/bibliosphere/Bibliosphere draft.md",
     "2026-04-06.md",
     "posts/notes/lie-groups-lie-algebras",
-    "posts/notes/bec-1d-2d",
     "posts/notes/correlation-function-classical-limit/index.md",
-    "posts/notes/correlation-function-classical-limit",
     "posts/notes/spin-eigenstates-general/index.md",
-    "posts/notes/spin-eigenstates-general",
     "posts/notes/time-reversal-spin-half/index.md",
-    "posts/notes/time-reversal-spin-half",
-    "posts/notes/wkb-tunneling/index.md",
-    "posts/notes/spin-probabilities/index.md",
-    "posts/notes/density-matrix/index.md",
-    "posts/notes/spin-orbit-interaction/index.md",
     "posts/blogs/ipsp/leipzig_skyline.jpg",
     "posts/bibliosphere/ug/physicists.jpg",
     "posts/bibliosphere/grad/galileo.jpeg",
