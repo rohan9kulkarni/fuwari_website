@@ -4,6 +4,7 @@ published: 2024-04-03
 description: "Deriving the Mandelstam variables s, t, u for e+e- → μ+μ- scattering in the center-of-mass frame — from kinematics to Lorentz-invariant cross sections."
 tags:
   - quantum-field-theory
+  - physics
 category: Notes
 draft: false
 ---

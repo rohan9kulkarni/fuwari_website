@@ -1,10 +1,11 @@
 ---
 title: Lie Groups and Lie Algebras, Part I
-published: 2026-04-06
+published: 2026-04-03
 description: Building the language of Lie groups and their representations from the ground up — generators, structure constants, representations, Casimir operators, and the exponential map.
 tags:
   - mathematical-physics
   - quantum-field-theory
+  - physics
 category: Notes
 draft: false
 ---

@@ -4,6 +4,7 @@ published: 2023-07-20
 description: "Deriving the electron neutrino survival probability from scratch using two bases, a rotation angle, and time evolution — plus why oscillations prove neutrinos have mass."
 tags:
   - particle-physics
+  - physics
 category: Notes
 draft: false
 ---

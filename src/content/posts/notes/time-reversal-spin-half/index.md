@@ -4,6 +4,7 @@ published: 2022-11-09
 description: "Deriving the explicit matrix form of the time-reversal operator for a spin-1/2 particle by expanding the exponential, and proving the famous result Θ² = −1 for fermions."
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

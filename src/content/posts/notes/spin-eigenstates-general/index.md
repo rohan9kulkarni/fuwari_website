@@ -5,6 +5,7 @@ description: "Deriving the explicit matrix form and normalization of the spin ei
 image: ""
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

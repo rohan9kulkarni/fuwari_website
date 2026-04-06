@@ -4,6 +4,7 @@ published: 2022-10-17
 description: "Deriving the transfer matrix connecting incoming and outgoing WKB amplitudes across a general potential barrier, and extracting the tunneling transmission coefficient."
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

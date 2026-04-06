@@ -1,9 +1,10 @@
 ---
 title: "Faddeev–Popov Quantization (Abelian), Part 2: The Trick, the Propagator, and What Counts as Gauge Fixing"
-published: 2026-04-04
+published: 2026-04-02
 description: "We derive the Faddeev–Popov identity using a discrete warm-up, insert it into the path integral, extract the gauge-fixed photon propagator, and ask: what other gauge-fixing terms are allowed?"
 tags:
   - quantum-field-theory
+  - physics
 category: Notes
 draft: false
 ---

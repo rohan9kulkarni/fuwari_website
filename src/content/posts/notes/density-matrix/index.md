@@ -4,6 +4,7 @@ published: 2023-07-20
 description: "Pure states, mixtures, ensemble averages, cyclic trace, and the von Neumann equation — all the core properties of the density operator worked out explicitly."
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

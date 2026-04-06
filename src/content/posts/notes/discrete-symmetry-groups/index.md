@@ -4,6 +4,7 @@ published: 2022-10-17
 description: "Working through a discrete rotation group, its subgroups, eigenvalues of symmetry operators, non-commutativity of rotations and reflections, and using symmetry to identify vanishing matrix elements."
 tags:
   - mathematical-physics
+  - physics
 category: Notes
 draft: false
 ---

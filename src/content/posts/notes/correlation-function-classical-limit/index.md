@@ -5,6 +5,7 @@ description: "Exploring how the quantum mechanical correlation function C(t) rel
 image: ""
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

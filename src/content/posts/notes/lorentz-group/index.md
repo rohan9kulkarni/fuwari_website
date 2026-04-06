@@ -1,10 +1,11 @@
 ---
 title: "Lie Groups and Lie Algebras, Part II: The Lorentz Group"
-published: 2026-04-06
+published: 2026-04-04
 description: "Exploring the Lorentz group O(3,1), its disconnected components, its defining invariant metric, and its fundamental representations in relativistic physics."
 tags:
   - mathematical-physics
   - special-relativity
+  - physics
 category: Notes
 draft: false
 ---
@@ -335,7 +336,7 @@ The minus sign in $[K^i, K^j] = -i\epsilon^{ijk}J^k$ will be the engine that dri
 
 ---
 
-*Next post: [(III) Spinors, Fields, and the Poincaré Group](#)*
+*Next post: [Part III: Spinors, Fields, and the Representations That Matter](/posts/notes/lorentz-representations/)*
 
 ---
 

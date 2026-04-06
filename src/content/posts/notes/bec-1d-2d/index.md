@@ -4,6 +4,7 @@ published: 2024-05-24
 description: "Checking if Bose-Einstein Condensation can occur in 1D and 2D for free particles using periodic boundary conditions — and why the density of states is the key."
 tags:
   - statistical-mechanics
+  - physics
 category: Notes
 draft: false
 ---

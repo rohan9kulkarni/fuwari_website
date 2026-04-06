@@ -4,6 +4,7 @@ published: 2022-10-17
 description: "Using angular momentum conservation to constrain the final state of a particle decay, enumerating possible states, determining parity, and extracting spin measurement probabilities from Clebsch-Gordan coefficients."
 tags:
   - particle-physics
+  - physics
 category: Notes
 draft: false
 ---

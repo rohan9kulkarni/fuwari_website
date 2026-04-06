@@ -4,6 +4,7 @@ published: 2023-07-20
 description: "When [A, B] = c is a constant, a slick ODE trick unlocks three powerful operator identities used throughout quantum mechanics."
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---

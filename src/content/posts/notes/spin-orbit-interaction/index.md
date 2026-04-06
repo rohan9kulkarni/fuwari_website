@@ -4,6 +4,7 @@ published: 2023-07-20
 description: "We decompose L·S using ladder operators and write the spin-orbit Hamiltonian explicitly as a 2×2 matrix in the Sz eigenbasis."
 tags:
   - quantum-mechanics
+  - physics
 category: Notes
 draft: false
 ---
