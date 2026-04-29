@@ -46,6 +46,7 @@ export default defineConfig({
 			updateHead: true,
 			updateBodyClass: false,
 			globalInstance: true,
+			ignore: [/\.pdf$/i, "a[href$='.pdf']"],
 		}),
 		icon({
 			include: {
