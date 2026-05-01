@@ -1,4 +1,5 @@
 import type {
+	CommentsConfig,
 	ExpressiveCodeConfig,
 	LicenseConfig,
 	NavBarConfig,
@@ -84,6 +85,22 @@ export const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
+export const commentsConfig: CommentsConfig = {
+	enable: true,
+	// Fill these in from https://giscus.app after enabling Discussions on your repo
+	// and installing the giscus GitHub app.
+	repo: "rohan9kulkarni/fuwari_website",
+	repoId: "R_kgDOQIIT_A",
+	category: "Announcements",
+	categoryId: "DIC_kwDOQIIT_M4C8JZA",
+	mapping: "pathname",
+	strict: "0",
+	reactionsEnabled: "1",
+	emitMetadata: "0",
+	inputPosition: "top",
+	lang: "en",
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {

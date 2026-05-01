@@ -1,0 +1,110 @@
+---
+import { commentsConfig } from "../config";
+---
+
+<div
+    id="comments-container"
+    class="card-base z-10 px-6 md:px-9 py-6 relative w-full mb-4 onload-animation"
+    data-giscus-repo={commentsConfig.repo}
+    data-giscus-repo-id={commentsConfig.repoId}
+    data-giscus-category={commentsConfig.category}
+    data-giscus-category-id={commentsConfig.categoryId}
+    data-giscus-mapping={commentsConfig.mapping}
+    data-giscus-strict={commentsConfig.strict}
+    data-giscus-reactions-enabled={commentsConfig.reactionsEnabled}
+    data-giscus-emit-metadata={commentsConfig.emitMetadata}
+    data-giscus-input-position={commentsConfig.inputPosition}
+    data-giscus-lang={commentsConfig.lang}
+>
+    <div class="flex items-center mb-4 text-black/75 dark:text-white/75">
+        <div class="text-lg font-bold">Comments</div>
+    </div>
+    <div id="giscus-mount"></div>
+</div>
+
+<script>
+    function getGiscusTheme(): string {
+        return document.documentElement.classList.contains("dark")
+            ? "noborder_dark"
+            : "noborder_light";
+    }
+
+    function loadGiscus() {
+        const container = document.getElementById("comments-container");
+        const mount = document.getElementById("giscus-mount");
+        if (!container || !mount) return;
+
+        // Clear previous instance (e.g. on swup navigation)
+        mount.innerHTML = "";
+
+        const ds = container.dataset;
+        if (!ds.giscusRepoId || ds.giscusRepoId.startsWith("REPLACE_")) {
+            mount.innerHTML =
+                '<div class="text-sm text-black/50 dark:text-white/50">Comments are not configured. Set repoId/categoryId in <code>src/config.ts</code>.</div>';
+            return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://giscus.app/client.js";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+        script.setAttribute("data-repo", ds.giscusRepo || "");
+        script.setAttribute("data-repo-id", ds.giscusRepoId || "");
+        script.setAttribute("data-category", ds.giscusCategory || "");
+        script.setAttribute("data-category-id", ds.giscusCategoryId || "");
+        script.setAttribute("data-mapping", ds.giscusMapping || "pathname");
+        script.setAttribute("data-strict", ds.giscusStrict || "0");
+        script.setAttribute(
+            "data-reactions-enabled",
+            ds.giscusReactionsEnabled || "1",
+        );
+        script.setAttribute(
+            "data-emit-metadata",
+            ds.giscusEmitMetadata || "0",
+        );
+        script.setAttribute(
+            "data-input-position",
+            ds.giscusInputPosition || "top",
+        );
+        script.setAttribute("data-theme", getGiscusTheme());
+        script.setAttribute("data-lang", ds.giscusLang || "en");
+        script.setAttribute("data-loading", "lazy");
+        mount.appendChild(script);
+    }
+
+    function sendThemeToGiscus() {
+        const iframe = document.querySelector<HTMLIFrameElement>(
+            "iframe.giscus-frame",
+        );
+        if (!iframe?.contentWindow) return;
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: getGiscusTheme() } } },
+            "https://giscus.app",
+        );
+    }
+
+    // Initial load
+    loadGiscus();
+
+    // React to theme toggle (the LightDarkSwitch flips `dark` on <html>)
+    const themeObserver = new MutationObserver(sendThemeToGiscus);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+    });
+
+    // React to system theme change in auto mode
+    window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", sendThemeToGiscus);
+
+    // Swup re-init on page navigation
+    const swupHook = () => loadGiscus();
+    if ((window as any).swup?.hooks) {
+        (window as any).swup.hooks.on("page:view", swupHook);
+    } else {
+        document.addEventListener("swup:enable", () => {
+            (window as any).swup?.hooks?.on("page:view", swupHook);
+        });
+    }
+</script>
