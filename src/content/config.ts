@@ -11,6 +11,7 @@ const postsCollection = defineCollection({
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
 		lang: z.string().optional().default(""),
+		comments: z.boolean().optional().default(true),
 
 		/* For internal use */
 		prevTitle: z.string().default(""),

@@ -4,8 +4,9 @@
     {
       "name": "fuwari-dev",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["dev"],
-      "port": 4321
+      "runtimeArgs": ["dev", "--port", "4325"],
+      "port": 4325,
+      "autoPort": true
     }
   ]
 }
