@@ -10,7 +10,7 @@ image: ./ghosts.jpeg
 ---
 # Organizational details
 
-- [M.Sc](http://M.Sc). Physics specialization course
+- M.Sc. Physics specialization course
 - Standard course description can be found at the following link (on page 82) [https://www.physik.uni-heidelberg.de/c/image/d/studium/master/pdf/MScModuleManual.pdf](https://www.physik.uni-heidelberg.de/c/image/d/studium/master/pdf/MScModuleManual.pdf
 - Course organization on PhU for registered students ( [PhU link](https://uebungen.physik.uni-heidelberg.de/vorlesung/20241/1845))
 
@@ -34,7 +34,7 @@ image: ./ghosts.jpeg
 
     Notes : [tutorial1.pdf](/src/content/posts/teaching/qftii_heidelberg_sose2024/tutorial1.pdf)
     
-    Supplementary material (A detailed worked out version of first 6-7 pages of Chapter 7 of Peskin & Schroeder) : [tutorial1_supp.pdf](/src/content/posts/teaching/qftii_heidelberg_sose2024/tutorial2_supp.pdf)
+    Supplementary material (A detailed worked out version of first 6-7 pages of Chapter 7 of Peskin & Schroeder) : [tutorial1_supp.pdf](/src/content/posts/teaching/qftii_heidelberg_sose2024/tutorial1_supp.pdf)
     
 2. **Thursday, 2 May 2024, (2:15 PM - 4:00 PM)**
     - Buildup for renormalizing $\lambda \phi^4$

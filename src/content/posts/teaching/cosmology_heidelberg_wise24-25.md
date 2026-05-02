@@ -10,7 +10,7 @@ image: https://www.notion.so/images/page-cover/webb1.jpg
 ---
 # Organizational details
 
-- [M.Sc](http://M.Sc). Physics core course
+- M.Sc. Physics core course
 - Standard course description can be found at the following link (on page 82) [https://www.physik.uni-heidelberg.de/c/image/d/studium/master/pdf/MScModuleManual.pdf](https://www.physik.uni-heidelberg.de/c/image/d/studium/master/pdf/MScModuleManual.pdf
 - Course organization on PhU for registered students ( [PhU link](https://uebungen.physik.uni-heidelberg.de/vorlesung/20241/1845))
 
