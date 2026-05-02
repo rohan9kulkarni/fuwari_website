@@ -1,15 +1,26 @@
 ---
 title: IPSP Leipzig Part 3 - Do's and Don'ts for the course
 published: 2024-05-03
-description: Part III -International Physics Studies Program Tips
+description: Do's and don'ts for surviving IPSP Leipzig — weekly assignments strategy, TP1 pitfalls, avoiding the course-failure loop, part-time jobs, and mental health.
 tags:
   - IPSP Leipzig
+  - Leipzig
+  - Germany
+  - Physics
+  - Undergraduate
 category: Guides
 draft: false
 image: ./leipzig_skyline.jpg
 ---
+**This is Part 3 of a 3-part series on IPSP Leipzig.**
+- [Part 1 — Application phase FAQ](/posts/blogs/ipsp/ipsp1)
+- [Part 2 — Preparation phase](/posts/blogs/ipsp/ipsp2)
+- Part 3 — Do's and Don'ts for the course *(you are here)*
+
+---
+
 :::note
-I assume you have up-to-date high school physics knowledge (not rusty from years ago) and have gone through the foundational mathematical preparation in the IPSP II post. This will be one of the longer posts you'll encounter on my blog.
+I assume you have up-to-date high school physics knowledge (not rusty from years ago) and have gone through the foundational mathematical preparation in [Part 2](/posts/blogs/ipsp/ipsp2). This will be one of the longer posts you'll encounter on my blog.
 :::
  
  Let's dive straight into the logistics and some Do's and Don'ts.

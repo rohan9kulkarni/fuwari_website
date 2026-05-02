@@ -1,15 +1,26 @@
 ---
 title: IPSP Leipzig Part 2- Preparation phase
 published: 2023-07-18
-description: Part  II -International Physics Studies Program Tips
+description: How to prepare for IPSP Leipzig — math and physics foundations to build before arrival, why survival is harder than admission, and the German university model.
 tags:
   - IPSP Leipzig
+  - Leipzig
+  - Germany
+  - Physics
+  - Undergraduate
 category: Guides
 draft: false
 image: ./aula.jpg
 ---
 
-If you have read [part 1]() of this blog, you know that everyone who meets the HEQ criteria in the eyes of Uni-assist gets accepted.
+**This is Part 2 of a 3-part series on IPSP Leipzig.**
+- [Part 1 — Application phase FAQ](/posts/blogs/ipsp/ipsp1)
+- Part 2 — Preparation phase *(you are here)*
+- [Part 3 — Do's and Don'ts for the course](/posts/blogs/ipsp/ipsp3)
+
+---
+
+If you have read [Part 1](/posts/blogs/ipsp/ipsp1) of this series, you know that everyone who meets the HEQ criteria in the eyes of Uni-assist gets accepted.
 
 :::caution[DISCLAIMER]
 **Contrary to most good physics programs worldwide, the hard part is not getting accepted to IPSP - it’s survival**.
@@ -52,3 +63,7 @@ Make sure you know how to hack through dimensional analysis, vectors, energy, wo
 
 ---
 That’s it really. Anything more than that is undoubtedly going to help you further and I can give some suggestions… but on the other hand from my own experience, if I put the suggestions here I would just jump to the cool physics. In order to avoid that, I keep that for some another blog post.
+
+---
+
+**Continue the series:** [Part 3 — Do’s and Don’ts for the course →](/posts/blogs/ipsp/ipsp3)

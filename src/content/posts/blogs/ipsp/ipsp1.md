@@ -1,9 +1,13 @@
 ---
 title: IPSP Leipzig Part 1- Application phase FAQ.
 published: 2021-08-24
-description: Part I -International Physics Studies Program Tips 
+description: How to apply to IPSP Leipzig as an international student — HEQ requirements, Studienkolleg, JEE-Advanced eligibility, and the Uni-assist application process.
 tags:
   - IPSP Leipzig
+  - Leipzig
+  - Germany
+  - Physics
+  - Undergraduate
 category: Guides
 draft: false
 ---
@@ -53,3 +57,10 @@ If you choose 3.2., it does not mean you enter IPSP straight to the second year.
 :::
 
 After satisfying the HEQ, you apply through Uni-assist. I recommend applying around April to ensure you get your Visa by the end of September at max. The Winter semester will generally start in the middle of October every year.
+
+---
+
+**This is Part 1 of a 3-part series on IPSP Leipzig.**
+- Part 1 — Application phase FAQ *(you are here)*
+- [Part 2 — Preparation phase](/posts/blogs/ipsp/ipsp2)
+- [Part 3 — Do's and Don'ts for the course](/posts/blogs/ipsp/ipsp3)
