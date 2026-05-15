@@ -33,7 +33,7 @@ The cosmological principle says the Universe, on large scales, is homogeneous an
 
 Its stress-energy tensor takes the perfect-fluid form automatically:
 
-$$T^{\mu}{}_{\nu} = \text{diag}\left(-\rho(t),\; p(t),\; p(t),\; p(t)\right),$$
+$$T^{\mu}{}_{\nu} = \text{diag}\left(\rho(t),\; -p(t),\; -p(t),\; -p(t)\right),$$
 
 with
 

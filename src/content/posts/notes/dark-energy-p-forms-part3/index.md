@@ -134,7 +134,7 @@ $$H_{txy} = 0, \qquad H_{txz} = 0, \qquad H_{tyz} = 0.$$
 
 All temporal-spatial components of the field strength vanish, while $H_{xyz}$ is left unconstrained. The stress-energy tensor then becomes:
 
-$$T^\mu{}_\nu = \text{diag}\left(f,\; -(f - 2Xf_X),\; -(f - 2Xf_X),\; -(f - 2Xf_X)\right),$$
+$$T^\mu{}_\nu = \text{diag}\left(f,\; f - 2Xf_X,\; f - 2Xf_X,\; f - 2Xf_X\right),$$
 
 which is precisely the perfect-fluid form with:
 
