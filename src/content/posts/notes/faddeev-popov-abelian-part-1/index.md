@@ -41,11 +41,11 @@ $$\mathcal{L} = \frac{1}{4}F_{\mu\nu}F_{\mu\nu} = \frac{1}{4}(F_{0i}^2 + F_{ij}^
 
 We can write $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ and expand. After integrating by parts (throwing away boundary terms), the action takes the form:
 
-$$S[A] = \frac{1}{2}\int d^4x \; A_\mu\!\left(\Box\,\delta_{\mu\nu} - \partial_\mu\partial_\nu\right)A_\nu$$
+$$S[A] = \frac{1}{2}\int d^4x \; A_\mu\!\left(-\Box\,\delta_{\mu\nu} + \partial_\mu\partial_\nu\right)A_\nu$$
 
 This is a quadratic action in $A_\mu$, which means the path integral is Gaussian. For a Gaussian integral to make sense, you need to **invert the operator** in the exponent — that inverse is the propagator. But the operator
 
-$$\mathcal{O}_{\mu\nu} = \Box\,\delta_{\mu\nu} - \partial_\mu\partial_\nu$$
+$$\mathcal{O}_{\mu\nu} = -\Box\,\delta_{\mu\nu} + \partial_\mu\partial_\nu$$
 
 has a **zero mode**. To see this, hit it with $\partial_\mu\chi$ for any function $\chi$:
 
@@ -149,7 +149,7 @@ In non-abelian theories, the analogous operator *does* depend on $A_\mu$, and $\
 
 Here's what we've established:
 
-- The kinetic operator $\Box\,\delta_{\mu\nu} - \partial_\mu\partial_\nu$ has zero modes along gauge directions, making it **non-invertible** and the path integral ill-defined.
+- The kinetic operator $-\Box\,\delta_{\mu\nu} + \partial_\mu\partial_\nu$ has zero modes along gauge directions, making it **non-invertible** and the path integral ill-defined.
 - This is because the path integral overcounts: every physical configuration has an infinite family of gauge copies, and we integrate over all of them.
 - The space of field configurations is foliated into **gauge orbits**. Gauge fixing means choosing a surface that cuts each orbit exactly once.
 - The **Lorenz condition** $\partial_\mu A_\mu = 0$ is such a surface — existence and uniqueness of the required gauge transformation follows from invertibility of $\Box$.

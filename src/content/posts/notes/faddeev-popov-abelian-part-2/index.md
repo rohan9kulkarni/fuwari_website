@@ -9,7 +9,7 @@ category: Notes
 draft: false
 ---
 
-In [Part 1](/posts/notes/faddeev-popov-abelian-part-1/), we saw that the path integral for a $U(1)$ gauge field is ill-defined: the kinetic operator $\Box\,\delta_{\mu\nu} - \partial_\mu\partial_\nu$ has zero modes along gauge directions, and the integral overcounts by an infinite factor — the volume of the gauge orbit. We need to restrict the integral to one representative per orbit, but naively inserting a delta function misses a Jacobian.
+In [Part 1](/posts/notes/faddeev-popov-abelian-part-1/), we saw that the path integral for a $U(1)$ gauge field is ill-defined: the kinetic operator $-\Box\,\delta_{\mu\nu} + \partial_\mu\partial_\nu$ has zero modes along gauge directions, and the integral overcounts by an infinite factor — the volume of the gauge orbit. We need to restrict the integral to one representative per orbit, but naively inserting a delta function misses a Jacobian.
 
 Now we fix this properly. The Faddeev–Popov trick is, at its core, the art of inserting a very clever "$1$" into the path integral.
 
@@ -135,7 +135,7 @@ A crucial point deserves emphasis: the reason this was so clean is that $\det(\B
 
 Now we can finally invert the kinetic operator. The gauge-fixed action is:
 
-$$S_{\text{eff}} = \frac{1}{2}\int d^4x\;A_\mu\!\left(\Box\,\delta_{\mu\nu} - \partial_\mu\partial_\nu + \frac{1}{\xi}\partial_\mu\partial_\nu\right)\!A_\nu = \frac{1}{2}\int d^4x\;A_\mu\!\left(\Box\,\delta_{\mu\nu} - \left(1 - \frac{1}{\xi}\right)\partial_\mu\partial_\nu\right)\!A_\nu$$
+$$S_{\text{eff}} = \frac{1}{2}\int d^4x\;A_\mu\!\left(-\Box\,\delta_{\mu\nu} + \partial_\mu\partial_\nu - \frac{1}{\xi}\partial_\mu\partial_\nu\right)\!A_\nu = \frac{1}{2}\int d^4x\;A_\mu\!\left(-\Box\,\delta_{\mu\nu} + \left(1 - \frac{1}{\xi}\right)\partial_\mu\partial_\nu\right)\!A_\nu$$
 
 Go to momentum space ($\partial_\mu \to ik_\mu$, $\Box \to -k^2$). The operator becomes:
 
