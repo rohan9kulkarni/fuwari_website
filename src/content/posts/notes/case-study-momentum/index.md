@@ -171,7 +171,7 @@ where the domain $\mathcal{D}_P$ has yet to be specified. We work on $\mathcal{H
 - **Interval (Dirichlet):** $\mathcal{D}_P^{\text{int}} = \{\psi \in C^1([0, 2\pi]) \mid \psi(0) = \psi(2\pi) = 0\}$.
 - **Circle (periodic):** $\mathcal{D}_P^{\text{circ}} = \{\psi \in C^1([0, 2\pi]) \mid \psi(0) = \psi(2\pi)\}$.
 
-The Dirichlet condition is strictly stronger than the periodic one ($0 = 0$ implies $0 = 0$, but not conversely), so as operators we have $\hat{P}_j^{\text{int}} \subsetneq \hat{P}_j^{\text{circ}}$ — the circle operator is an extension of the interval operator.
+The Dirichlet condition is strictly stronger than the periodic one (Dirichlet forces both endpoints to equal zero, which implies periodicity, but not conversely), so as operators we have $\hat{P}_j^{\text{int}} \subsetneq \hat{P}_j^{\text{circ}}$ — the circle operator is an extension of the interval operator.
 
 We'll need a couple of function-space facts. The chain of inclusions
 
