@@ -7,6 +7,7 @@ tags:
   - quantum-field-theory
   - physics
 category: Notes
+series: "Lie Groups and Lie Algebras"
 draft: false
 ---
 **Prerequisites**: [Part I — Lie Groups and Lie Algebras](/posts/notes/lie-groups-lie-algebras/), [Part II — The Lorentz Group](/posts/notes/lorentz-group/), [Part III — Spinors, Fields, and the Representations That Matter](/posts/notes/lorentz-representations/). Familiarity with four-momentum and basic special relativity.

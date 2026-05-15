@@ -6,6 +6,7 @@ tags:
   - quantum-field-theory
   - physics
 category: Notes
+series: "Faddeev-Popov Quantization (Abelian)"
 draft: false
 ---
 

@@ -1,0 +1,21 @@
+{
+	"name": "Rohan Kulkarni",
+	"short_name": "Rohan",
+	"description": "Theoretical Physicist — Personal website and Blogs",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#6366f1",
+	"icons": [
+		{
+			"src": "/favicon/favicon-light-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon/favicon-light-128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	]
+}

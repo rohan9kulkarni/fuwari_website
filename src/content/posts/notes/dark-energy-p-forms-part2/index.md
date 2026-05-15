@@ -6,6 +6,7 @@ tags:
   - cosmology
   - physics
 category: Notes
+series: "Dark Energy Beyond Scalars"
 draft: false
 ---
 

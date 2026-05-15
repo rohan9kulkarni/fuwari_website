@@ -6,6 +6,7 @@ tags:
   - mathematical-physics
   - physics
 category: Notes
+series: "Lie Groups and Lie Algebras"
 draft: false
 ---
 **Prerequisites**: Linear algebra (matrix exponentials, commutators), some exposure to group theory (what a group is, what the identity element is), and basic quantum mechanics (angular momentum).

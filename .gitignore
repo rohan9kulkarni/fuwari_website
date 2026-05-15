@@ -26,6 +26,9 @@ package-lock.json
 bun.lockb
 yarn.lock
 
+# proofreading log (local only)
+PROOFREADING_LOG.md
+
 # ide
 .idea
 *.iml

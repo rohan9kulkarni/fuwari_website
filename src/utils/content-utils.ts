@@ -3,7 +3,6 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
 
-// // Retrieve posts and sort them by publication date
 async function getRawSortedPosts() {
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
@@ -30,6 +29,70 @@ export async function getSortedPosts() {
 	}
 
 	return sorted;
+}
+
+export type SeriesPost = {
+	slug: string;
+	title: string;
+	part: number;
+	total: number;
+	prevSlug: string;
+	prevTitle: string;
+	nextSlug: string;
+	nextTitle: string;
+};
+
+export async function getSeriesInfo(
+	seriesName: string,
+	currentSlug: string,
+): Promise<SeriesPost | null> {
+	if (!seriesName) return null;
+
+	const allPosts = await getCollection("posts", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	const seriesPosts = allPosts
+		.filter((p) => p.data.series === seriesName)
+		.sort((a, b) => {
+			return new Date(a.data.published) > new Date(b.data.published) ? 1 : -1;
+		});
+
+	const idx = seriesPosts.findIndex((p) => p.slug === currentSlug);
+	if (idx === -1) return null;
+
+	const total = seriesPosts.length;
+	const part = idx + 1;
+
+	return {
+		slug: currentSlug,
+		title: seriesPosts[idx].data.title,
+		part,
+		total,
+		prevSlug: idx > 0 ? seriesPosts[idx - 1].slug : "",
+		prevTitle: idx > 0 ? seriesPosts[idx - 1].data.title : "",
+		nextSlug: idx < total - 1 ? seriesPosts[idx + 1].slug : "",
+		nextTitle: idx < total - 1 ? seriesPosts[idx + 1].data.title : "",
+	};
+}
+
+export async function getSeriesPosts(seriesName: string) {
+	if (!seriesName) return [];
+
+	const allPosts = await getCollection("posts", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	return allPosts
+		.filter((p) => p.data.series === seriesName)
+		.sort((a, b) => {
+			return new Date(a.data.published) > new Date(b.data.published) ? 1 : -1;
+		})
+		.map((p, i) => ({
+			slug: p.slug,
+			title: p.data.title,
+			part: i + 1,
+		}));
 }
 export type PostForList = {
 	slug: string;

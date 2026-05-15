@@ -128,6 +128,12 @@ const bannerOffset =
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#6366f1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="manifest" href="/manifest.json" />
+
+		<meta property="og:image" content={new URL("/images/og-default.jpg", Astro.site).href} />
+		<meta name="twitter:image" content={new URL("/images/og-default.jpg", Astro.site).href} />
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}

@@ -1,0 +1,72 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="flex items-center gap-2 mb-4 onload-animation" id="share-buttons">
+	<span class="text-xs text-black/30 dark:text-white/30 mr-1">Share</span>
+
+	<button
+		id="copy-link-btn"
+		class="h-8 px-3 rounded-lg bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 transition flex items-center gap-1.5 text-black/50 dark:text-white/50 hover:text-black/75 dark:hover:text-white/75 text-xs active:scale-95"
+		aria-label="Copy link to this post"
+	>
+		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+			<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+		</svg>
+		<span id="copy-link-text">Copy link</span>
+	</button>
+
+	<a
+		href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(Astro.url.href)}&text=${encodeURIComponent(title)}`}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="h-8 px-3 rounded-lg bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 transition flex items-center gap-1.5 text-black/50 dark:text-white/50 hover:text-black/75 dark:hover:text-white/75 text-xs active:scale-95"
+		aria-label="Share on X (Twitter)"
+	>
+		<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+			<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+		</svg>
+		<span>Post</span>
+	</a>
+</div>
+
+<script>
+function initShareButtons() {
+	const btn = document.getElementById("copy-link-btn");
+	const textEl = document.getElementById("copy-link-text");
+	if (!btn || !textEl) return;
+
+	btn.addEventListener("click", async () => {
+		try {
+			await navigator.clipboard.writeText(window.location.href);
+			textEl.textContent = "Copied!";
+			btn.classList.add("text-green-600", "dark:text-green-400");
+			setTimeout(() => {
+				textEl.textContent = "Copy link";
+				btn.classList.remove("text-green-600", "dark:text-green-400");
+			}, 2000);
+		} catch {
+			textEl.textContent = "Failed";
+			setTimeout(() => {
+				textEl.textContent = "Copy link";
+			}, 2000);
+		}
+	});
+}
+
+initShareButtons();
+
+const setup = () => {
+	window.swup?.hooks?.on("page:view", initShareButtons);
+};
+if (window.swup?.hooks) {
+	setup();
+} else {
+	document.addEventListener("swup:enable", setup);
+}
+</script>

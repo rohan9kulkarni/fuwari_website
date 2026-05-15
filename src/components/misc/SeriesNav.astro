@@ -1,0 +1,51 @@
+---
+import { getPostUrlBySlug } from "@utils/url-utils";
+import { Icon } from "astro-icon/components";
+
+interface SeriesEntry {
+	slug: string;
+	title: string;
+	part: number;
+}
+
+interface Props {
+	seriesName: string;
+	currentSlug: string;
+	posts: SeriesEntry[];
+}
+
+const { seriesName, currentSlug, posts } = Astro.props;
+---
+
+<div class="series-nav card-base px-5 py-4 mb-5 onload-animation">
+	<div class="flex items-center gap-2 mb-3 text-black/75 dark:text-white/75">
+		<Icon name="material-symbols:book-2-rounded" class="text-lg text-[var(--primary)]" />
+		<span class="text-sm font-medium">Series</span>
+	</div>
+	<div class="text-base font-bold mb-3 text-black/90 dark:text-white/90">{seriesName}</div>
+	<ol class="space-y-1.5">
+		{posts.map((post) => (
+			<li>
+				<a
+					href={getPostUrlBySlug(post.slug)}
+					class:list={[
+						"flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg text-sm transition",
+						post.slug === currentSlug
+							? "bg-[var(--primary)]/10 text-[var(--primary)] font-semibold"
+							: "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black/80 dark:hover:text-white/80",
+					]}
+				>
+					<span class:list={[
+						"shrink-0 w-5 h-5 rounded text-xs flex items-center justify-center mt-0.5",
+						post.slug === currentSlug
+							? "bg-[var(--primary)]/20 text-[var(--primary)]"
+							: "bg-black/5 dark:bg-white/10 text-black/40 dark:text-white/40",
+					]}>
+						{post.part}
+					</span>
+					<span class="leading-snug">{post.title}</span>
+				</a>
+			</li>
+		))}
+	</ol>
+</div>

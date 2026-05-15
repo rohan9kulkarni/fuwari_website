@@ -9,6 +9,7 @@ tags:
   - Physics
   - Undergraduate
 category: Guides
+series: "IPSP Leipzig"
 draft: false
 image: ./leipzig_skyline.jpg
 ---

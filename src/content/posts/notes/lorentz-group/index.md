@@ -7,6 +7,7 @@ tags:
   - special-relativity
   - physics
 category: Notes
+series: "Lie Groups and Lie Algebras"
 draft: false
 ---
 **Prerequisites**: [Part I — Lie Groups and Lie Algebras](/posts/notes/lie-groups-lie-algebras/), familiarity with index notation for vectors and matrices, and special relativity at the level of knowing what a Lorentz boost is.
