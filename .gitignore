@@ -32,3 +32,6 @@ PROOFREADING_LOG.md
 # ide
 .idea
 *.iml
+
+# obsidian editor state
+.obsidian/
