@@ -27,9 +27,23 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
+	ogImage?: string;
+	published?: Date;
+	updated?: Date;
+	tags?: string[];
 }
 
-let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
+let {
+	title,
+	banner,
+	description,
+	lang,
+	setOGTypeArticle,
+	ogImage,
+	published,
+	updated,
+	tags,
+} = Astro.props;
 
 // apply a class to the body element to decide the height of the banner, only used for initial page load
 // Swup can update the body for each page visit, but it's after the page transition, causing a delay for banner height change
@@ -64,6 +78,22 @@ if (!lang) {
 }
 const siteLang = lang.replace("_", "-");
 
+// Canonical URL (pathname only, ignores query strings/fragments) to avoid
+// duplicate-content issues in search engines.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
+// Description used for meta/OG/Twitter tags. Fall back to the site subtitle
+// rather than the page title so the snippet reads like a real description.
+const metaDescription = description || siteConfig.subtitle;
+
+// Social share image: use the page-provided image when available, otherwise
+// the site-wide default. Must be an absolute URL for social crawlers.
+const ogImageURL =
+	ogImage || new URL("/images/og-default.jpg", Astro.site).href;
+
+// og:locale expects an underscore-separated locale (e.g. en_US).
+const ogLocale = siteLang.replace("-", "_");
+
 const bannerOffsetByPosition = {
 	top: `${BANNER_HEIGHT_EXTEND}vh`,
 	center: `${BANNER_HEIGHT_EXTEND / 2}vh`,
@@ -82,23 +112,37 @@ const bannerOffset =
 		<title>{pageTitle}</title>
 
 		<meta charset="UTF-8" />
-		<meta name="description" content={description || pageTitle}>
+		<meta name="description" content={metaDescription}>
 		<meta name="author" content={profileConfig.name}>
+		<link rel="canonical" href={canonicalURL}>
 
 		<meta property="og:site_name" content={siteConfig.title}>
-		<meta property="og:url" content={Astro.url}>
+		<meta property="og:url" content={canonicalURL}>
 		<meta property="og:title" content={pageTitle}>
-		<meta property="og:description" content={description || pageTitle}>
+		<meta property="og:description" content={metaDescription}>
+		<meta property="og:locale" content={ogLocale}>
 		{setOGTypeArticle ? (
         <meta property="og:type" content="article" />
         ) : (
         <meta property="og:type" content="website" />
         )}
+		{setOGTypeArticle && published && (
+        <meta property="article:published_time" content={published.toISOString()} />
+        )}
+		{setOGTypeArticle && updated && (
+        <meta property="article:modified_time" content={updated.toISOString()} />
+        )}
+		{setOGTypeArticle && (
+        <meta property="article:author" content={profileConfig.name} />
+        )}
+		{setOGTypeArticle && tags?.map((tag) => (
+        <meta property="article:tag" content={tag} />
+        ))}
 
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content={Astro.url}>
+		<meta property="twitter:url" content={canonicalURL}>
 		<meta name="twitter:title" content={pageTitle}>
-		<meta name="twitter:description" content={description || pageTitle}>
+		<meta name="twitter:description" content={metaDescription}>
 
 		{import.meta.env.PROD && (
 			<script defer is:inline src="https://cloud.umami.is/script.js" data-website-id="03f0e476-d72b-49a3-8070-9d1a7ee51712"></script>
@@ -126,14 +170,16 @@ const bannerOffset =
 			</script>
 		)}
 
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#6366f1" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="manifest" href="/manifest.json" />
 
-		<meta property="og:image" content={new URL("/images/og-default.jpg", Astro.site).href} />
-		<meta name="twitter:image" content={new URL("/images/og-default.jpg", Astro.site).href} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:alt" content={pageTitle} />
+		<meta name="twitter:image" content={ogImageURL} />
+		<meta name="twitter:image:alt" content={pageTitle} />
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}

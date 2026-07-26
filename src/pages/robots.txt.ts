@@ -1,8 +1,10 @@
 import type { APIRoute } from "astro";
 
+// Allow crawlers full access — including /_astro/ CSS & JS, which search
+// engines need to render and correctly index the pages.
 const robotsTxt = `
 User-agent: *
-Disallow: /_astro/
+Allow: /
 
 Sitemap: ${new URL("sitemap-index.xml", import.meta.env.SITE).href}
 `.trim();

@@ -13,6 +13,7 @@ import {
 	getSeriesPosts,
 	getSortedPosts,
 } from "@utils/content-utils";
+import { resolveCoverImageUrl } from "@utils/image-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
 import { commentsConfig, licenseConfig } from "src/config";
@@ -41,6 +42,14 @@ const prevSlug = seriesInfo?.prevSlug || entry.data.prevSlug;
 const prevTitle = seriesInfo?.prevTitle || entry.data.prevTitle;
 const nextSlug = seriesInfo?.nextSlug || entry.data.nextSlug;
 const nextTitle = seriesInfo?.nextTitle || entry.data.nextTitle;
+
+// Absolute URL of the cover image, used for both the Open Graph / Twitter
+// share image and the JSON-LD structured data.
+const ogImage = await resolveCoverImageUrl(
+	entry.data.image,
+	entry.id,
+	Astro.site,
+);
 
 const jsonLd: Record<string, unknown> = {
 	"@context": "https://schema.org",
@@ -72,11 +81,11 @@ if (entry.data.updated) {
 	jsonLd.dateModified = formatDateToYYYYMMDD(entry.data.updated);
 }
 
-if (entry.data.image) {
-	jsonLd.image = new URL(entry.data.image, Astro.site).href;
+if (ogImage) {
+	jsonLd.image = ogImage;
 }
 ---
-<MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} headings={headings}>
+<MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} ogImage={ogImage} published={entry.data.published} updated={entry.data.updated} tags={entry.data.tags} headings={headings}>
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",

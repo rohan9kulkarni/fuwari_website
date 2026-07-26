@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import Pagination from "../components/control/Pagination.astro";
 import PostPage from "../components/PostPage.astro";
+import { profileConfig, siteConfig } from "../config";
 import { PAGE_SIZE } from "../constants/constants";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import { getSortedPosts } from "../utils/content-utils";
@@ -17,9 +18,41 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 
 const len = page.data.length;
+
+// Structured data for the site itself, emitted only on the first page so search
+// engines don't see it duplicated across the paginated archive.
+const isFirstPage = page.currentPage === 1;
+const sameAs = profileConfig.links
+	.map((link) => link.url)
+	.filter((u) => u.startsWith("http"));
+const homeJsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": `${Astro.site}#website`,
+			url: Astro.site?.href,
+			name: siteConfig.title,
+			description: siteConfig.subtitle,
+			inLanguage: siteConfig.lang.replace("_", "-"),
+			publisher: { "@id": `${Astro.site}#person` },
+		},
+		{
+			"@type": "Person",
+			"@id": `${Astro.site}#person`,
+			name: profileConfig.name,
+			description: profileConfig.bio,
+			url: Astro.site?.href,
+			...(sameAs.length > 0 ? { sameAs } : {}),
+		},
+	],
+};
 ---
 
 <MainGridLayout>
+    {isFirstPage && (
+        <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(homeJsonLd)}></script>
+    )}
     <PostPage page={page}></PostPage>
     <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
 </MainGridLayout>
