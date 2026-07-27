@@ -56,7 +56,7 @@ But, if you are able to grasp Tong's depth, there is nothing like it. It is the 
 <span style="background-color: #7FFF7F; color: #004400; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Introductory  </span>
 <span style="background: linear-gradient(45deg, #00CED1, #9370DB); color: #FFFFFF; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Ideal for Beginners </span>
 <center>
-<img alt="" src="https://m.media-amazon.com/images/I/61HBnuFYo-L._SL1360_.jpg" width="250" />
+<img alt="Introduction to Quantum Mechanics by Griffiths — book cover" src="https://m.media-amazon.com/images/I/61HBnuFYo-L._SL1360_.jpg" width="250" />
 </center>
 
 The holy grail of all books for beginners in Quantum mechanics. He is reading a story to you. First two chapters are dedicated to the very basic yet extremely important concepts of QM. Solve most of the problems in these chapters to make a concrete foundation. The book is divided into two parts (in any logical course, you will do one part in a single semester course).
@@ -68,7 +68,7 @@ The second part of the book can get fairly advanced at times. It definitely cove
 ## 📖 A Modern Approach to QM - Townsend
 <span style="background-color: #FFFF99; color: #000000; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;">  Intermediate </span>
 <center>
-<img alt="" src="https://m.media-amazon.com/images/I/81kTRYa2THL._SL1500_.jpg" width="250" />
+<img alt="A Modern Approach to Quantum Mechanics by Townsend — book cover" src="https://m.media-amazon.com/images/I/81kTRYa2THL._SL1500_.jpg" width="250" />
 </center>
 
 
@@ -79,7 +79,7 @@ He mentions in his preface that he uses Feynman's and Sakurai's books as his pri
 <span style="background-color: #7FFF7F; color: #004400; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Introductory  </span>
 <span style="background-color: #FFFF99; color: #000000; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;">  Intermediate </span>
 <center>
-<img alt="" src="https://m.media-amazon.com/images/I/51ybfnHodLL._SL1175_.jpg" width="250" />
+<img alt="Principles of Quantum Mechanics by Shankar — book cover" src="https://m.media-amazon.com/images/I/51ybfnHodLL._SL1175_.jpg" width="250" />
 </center>
 
 This fat, hardbound (usually) red book covers everything you need in QM. From the basics of linear algebra needed to Born approximation needed to transition to QFT, he covers every single topic (Including path integrals). Why is this in beginner books? It's the best reference out there for any topic you need.
