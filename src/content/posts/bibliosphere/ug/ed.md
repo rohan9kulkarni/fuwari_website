@@ -25,7 +25,7 @@ Electrodynamics is notoriously famous for being hard for beginners. It has earne
 <span style="background: linear-gradient(45deg, #00CED1, #9370DB); color: #FFFFFF; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Ideal for Beginners </span>
 <span style="background: linear-gradient(45deg, #001f3f, #0074cc); color: #FFFFFF; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> State-of-the-art </span>
 <center>
-<img alt="" src="https://m.media-amazon.com/images/I/61GH19rhqLL._SL1429_.jpg" width="250" />
+<img alt="Electrodynamics by David Tong — book cover" src="https://m.media-amazon.com/images/I/61GH19rhqLL._SL1429_.jpg" width="250" />
 </center>
 I honestly think this book has kicked Griffth's from its pedestal as the goto reference for decades. Unlike it's classical mechanics counterpart, I truly believe that this book is penetrable for a beginner. It has a excellent appendix on all the math you need (which I also believe has been converted from his lecture notes on Vector Calculus) - So do give it a read before you tackle it (or give it a read in parallel). Supplementary material like 3Blue1Brown's animations - like [this one](https://www.youtube.com/watch?v=rB83DpBJQsE) will be of enormous benefit when trying to learn Electrodynamics. 
 
@@ -38,7 +38,7 @@ The book has an excellent chapter on Classical Field Theory, which I do believe 
 <span style="background-color: #7FFF7F; color: #004400; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Introductory  </span>
 <span style="background: linear-gradient(45deg, #00CED1, #9370DB); color: #FFFFFF; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;"> Ideal for Beginners </span>
 
-<center><img alt="" src="https://m.media-amazon.com/images/I/51QaFhkuVxL._SL1360_.jpg" width="250" /></center>
+<center><img alt="Introduction to Electrodynamics by Griffiths — book cover" src="https://m.media-amazon.com/images/I/51QaFhkuVxL._SL1360_.jpg" width="250" /></center>
 
 The holy grail of all books for beginners in Electrodynamics. He is reading a story to you. First chapter is dedicated to the math required for electrodynamics and hence, is super duper important. Atleast for this chapter - Solve most of the problems to get a feeling of the math that is going to be used. The book is divided into two parts (in any logical course, you will do one part in a single semester course).
 
@@ -56,7 +56,7 @@ The holy grail of all books for beginners in Electrodynamics. He is reading a st
 
 [Solutions - Website 1](http://www-personal.umich.edu/~pran/jackson/), [Solutions -Website 2](http://www-personal.umich.edu/~jbourj/em.htm)
 
-<center><img alt="" src="https://m.media-amazon.com/images/I/81B6H-dk9qL._SL1500_.jpg" width="250" /></center>
+<center><img alt="Classical Electrodynamics by J.D. Jackson — book cover" src="https://m.media-amazon.com/images/I/81B6H-dk9qL._SL1500_.jpg" width="250" /></center>
 
 Do I really need to introduce *Jackson*? For better or worse—and you’ll get strong opinions on both—my entire undergraduate electrodynamics education came from this book. Reflecting back, the intensity was almost absurd: wrestling with modified Jackson problems for second-semester assignments was a trial by fire. It wasn’t until semesters later, when I started tutoring electrodynamics, that I returned to the text and experienced hundreds of “Eureka” moments. Suddenly, the deep physical intuition behind so many concepts clicked into place.
 
@@ -65,7 +65,7 @@ Let me be clear: this book is not for the faint of heart. I’d only recommend i
 ## 📖 **Electricity and Magnetism - Edward Purcell & David Morin**
 <span style="background-color: #FFFF99; color: #AA7700; padding: 2px 6px; border-radius: 50px; display: inline-block; font-size: 12px; margin: 2px;">  Intermediate </span>
 
-<center><img alt="" src="https://m.media-amazon.com/images/I/71pB0vKjrgL._SL1500_.jpg" width="250" /></center>
+<center><img alt="Electricity and Magnetism by Purcell and Morin — book cover" src="https://m.media-amazon.com/images/I/71pB0vKjrgL._SL1500_.jpg" width="250" /></center>
 
 A small fun fact about this book : Griffiths in the preface of his book writes, "Practically everything I know about electrodynamics - certainly about teaching electrodynamics - I owe to Edward Purcell". On top of that, David Morin is the same guy whose lecture notes on Mechanics are practically used by every physics student at least once in their life.
 
